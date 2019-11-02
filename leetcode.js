@@ -2,7 +2,11 @@
 // leetcode.com
 // =====================================================================
 
-function problem6(s, numRows) {
+// Problem 6: Zig Zag Conversion
+// https://leetcode.com/problems/zigzag-conversion/
+// Sample Input: convert('PAYPALISHIRING', 3);
+
+function convert(s, numRows) {
   // Loop through each character
   // When counter reaches numRows or 0, change sign
   // Push each letter into an array holding this row
@@ -39,5 +43,3 @@ function problem6(s, numRows) {
 
   console.log(finalStr);
 }
-
-problem6('PAYPALISHIRING', 3);
