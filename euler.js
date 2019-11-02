@@ -38,21 +38,21 @@ function problem2() {
 // What is the largest prime factor of the number 600851475143?
 function problem3() {
   let number = 600851475143;
-
-  // Check if number is divisible by 3, 5, or 7
-  // If divisible by 3, 5, or 7, eliminate all multiples of 3, 5, or 7, respectively, starting at this number
-
-  for (var i = number - 2; i > 0; i -= 2) {
-    console.log(i);
-    if (i % 3 !== 0 && i % 5 !== 0 && i % 7 !== 0) {
-      return;
-    }
-  }
 }
 
 // What is the largest palindromic number made from the product of two three-digit numbers?
 function problem4() {
   let number = 0;
+
+  // Find largest possible product
+  let largestProduct = 998001; // 999 * 999
+
+  // Find next largest palindrome
+
+  // Find its largest three-digit factor
+
+  // Check if second factor is three digits
+
   console.log(number);
 }
 
