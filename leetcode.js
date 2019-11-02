@@ -48,16 +48,8 @@ function convert(s, numRows) {
 // https://leetcode.com/problems/palindrome-number/
 
 var isPalindrome = function(x) {
-  if (x < 0) {
+  if (x < 0 || (x % 10 === 0 && x !== 0)) {
     return false;
-  }
-
-  if (x < 10) {
-    return true;
-  }
-
-  if (x % 11 === 0 && x < 100) {
-    return true;
   }
 
   let newNum = new Array();
