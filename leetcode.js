@@ -44,7 +44,7 @@ function convert(s, numRows) {
   console.log(finalStr);
 }
 
-// Problem 7: Palindrome Number
+// Problem 9: Palindrome Number
 // https://leetcode.com/problems/palindrome-number/
 
 var isPalindrome = function(x) {
@@ -71,3 +71,9 @@ var isPalindrome = function(x) {
 
   return true;
 };
+
+// Problem 10: Regular Expression Matching
+// https://leetcode.com/problems/regular-expression-matching/
+var isMatch = function(s, p) {};
+
+console.log(isMatch('aba', 'a*c*b.*'));
