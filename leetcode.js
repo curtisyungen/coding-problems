@@ -77,3 +77,24 @@ var isPalindrome = function(x) {
 var isMatch = function(s, p) {};
 
 console.log(isMatch('aba', 'a*c*b.*'));
+
+// Problem 11: Container With Most Water
+// https://leetcode.com/problems/container-with-most-water/
+
+var maxArea = function(height) {
+  let maxArea = 0;
+  let leftIdx = 0;
+  let rightIdx = height.length - 1;
+
+  while (leftIdx < rightIdx) {
+    maxArea = Math.max(maxArea, Math.min(height[leftIdx], height[rightIdx]) * (rightIdx - leftIdx));
+
+    if (height[leftIdx] < height[rightIdx]) {
+      leftIdx += 1;
+    } else {
+      rightIdx -= 1;
+    }
+  }
+
+  return maxArea;
+};
