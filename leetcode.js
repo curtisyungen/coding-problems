@@ -98,3 +98,70 @@ var maxArea = function(height) {
 
   return maxArea;
 };
+
+// Problem 12: Integer to Roman
+// https://leetcode.com/problems/integer-to-roman/submissions/
+
+var intToRoman = function(num) {
+  let numeral = '';
+
+  let thousands = Math.floor(num / 1000);
+  for (var i = 0; i < thousands; i++) {
+    numeral += 'M';
+  }
+
+  num -= thousands * 1000;
+
+  let hundreds = Math.floor(num / 100);
+  if (hundreds === 4) {
+    numeral += 'CD';
+  } else if (hundreds === 9) {
+    numeral += 'CM';
+  } else {
+    let tempHundreds = hundreds;
+    if (hundreds >= 5) {
+      numeral += 'D';
+      tempHundreds -= 5;
+    }
+    for (var k = 0; k < tempHundreds; k++) {
+      numeral += 'C';
+    }
+  }
+
+  num -= hundreds * 100;
+
+  let tens = Math.floor(num / 10);
+  if (tens === 4) {
+    numeral += 'XL';
+  } else if (tens === 9) {
+    numeral += 'XC';
+  } else {
+    let tempTens = tens;
+    if (tens >= 5) {
+      numeral += 'L';
+      tempTens -= 5;
+    }
+    for (var m = 0; m < tempTens; m++) {
+      numeral += 'X';
+    }
+  }
+
+  num -= tens * 10;
+
+  let ones = Math.floor(num / 1);
+  if (ones === 4) {
+    numeral += 'IV';
+  } else if (ones === 9) {
+    numeral += 'IX';
+  } else {
+    if (ones >= 5) {
+      numeral += 'V';
+      ones -= 5;
+    }
+    for (var p = 0; p < ones; p++) {
+      numeral += 'I';
+    }
+  }
+
+  return numeral;
+};
