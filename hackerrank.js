@@ -260,3 +260,29 @@ function findDigits(n) {
 }
 
 // console.log(findDigits(1012));
+
+// Problem: Append and Delete
+// Easy
+
+function appendAndDelete(s, t, k) {
+  let commonLength = 0;
+  for (var i = 0; i < Math.min(s.length, t.length); i++) {
+    if (s[i] === t[i]) {
+      commonLength += 1;
+    } else {
+      break;
+    }
+  }
+
+  if (s.length + t.length - 2 * commonLength > k) {
+    return "No";
+  } else if ((s.length + t.length - 2 * commonLength) % 2 === k % 2) {
+    return "Yes";
+  } else if (s.length + t.length - k < 0) {
+    return "Yes";
+  } else {
+    return "No";
+  }
+}
+
+// console.log(appendAndDelete("aaaaaaaaaa", "aaaaa", 7));
