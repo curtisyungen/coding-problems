@@ -3,7 +3,7 @@
 // =====================================================================
 
 // Problem: Picking Numbers
-// https://www.hackerrank.com/challenges/picking-numbers/problem
+// EASY
 
 function pickingNumbers(a) {
   let sets = [];
@@ -25,7 +25,7 @@ function pickingNumbers(a) {
 }
 
 // Problem: Climbing the Leaderboard
-// https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem?h_r=next-challenge&h_v=zen
+// EASY
 
 function climbLeaderboard(scores, alice) {
   let result = [];
@@ -43,7 +43,7 @@ function climbLeaderboard(scores, alice) {
 // console.log(climbLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]));
 
 // Problem: The Hurdle Race
-// https://www.hackerrank.com/challenges/the-hurdle-race/problem
+// EASY
 
 function hurdleRace(k, height) {
   let diff = Math.max(...height) - k;
@@ -52,7 +52,7 @@ function hurdleRace(k, height) {
 }
 
 // Problem: Designer PDF Viewer
-// https://www.hackerrank.com/challenges/designer-pdf-viewer/problem?h_r=next-challenge&h_v=zen
+// EASY
 
 function designerPdfViewer(h, word) {
   let letters = [
@@ -98,7 +98,7 @@ function designerPdfViewer(h, word) {
 }
 
 // Problem: Utopian Tree
-// https://www.hackerrank.com/challenges/utopian-tree/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+// EASY
 
 function utopianTree(n) {
   let h = 0;
@@ -113,7 +113,7 @@ function utopianTree(n) {
 }
 
 // Problem: Angry Professor
-// https://www.hackerrank.com/challenges/angry-professor/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+// EASY
 
 function angryProfessor(k, a) {
   let late = 0;
@@ -127,7 +127,7 @@ function angryProfessor(k, a) {
 }
 
 // Problem: Beautiful Days at the Movies
-// https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+// EASY
 
 function beautifulDays(i, j, k) {
   let newNum, orig;
@@ -153,7 +153,7 @@ function beautifulDays(i, j, k) {
 // console.log(beautifulDays(1, 2000000, 23047885));
 
 // Problem: Viral Advertising
-// https://www.hackerrank.com/challenges/strange-advertising/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+// EASY
 
 function viralAdvertising(n) {
   let shared = 5;
@@ -170,7 +170,7 @@ function viralAdvertising(n) {
 }
 
 // Problem: Save the Prisoner
-// https://www.hackerrank.com/challenges/save-the-prisoner/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+// EASY
 
 function saveThePrisoner(n, m, s) {
   if (Math.floor(m + s - 1) % n === 0) return n;
@@ -178,7 +178,7 @@ function saveThePrisoner(n, m, s) {
 }
 
 // Problem: Circular Array Rotation
-//
+// EASY
 
 function circularArrayRotation(a, k, queries) {
   let kAct = Math.floor(k % a.length);
@@ -199,7 +199,7 @@ function circularArrayRotation(a, k, queries) {
 // console.log(circularArrayRotation([1, 2, 3], 2, [0, 1, 2]));
 
 // Problem: Sequence Equation
-// https://www.hackerrank.com/challenges/permutation-equation/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+// EASY
 
 function permutationEquation(p) {
   let yArr = [];
@@ -214,3 +214,28 @@ function permutationEquation(p) {
 }
 
 // console.log(permutationEquation([2, 3, 1]));
+
+// Problem: Jumping on the Clouds
+// EASY
+
+function jumpingOnClouds(c, k) {
+  let idx = 0;
+  let e = 100;
+  do {
+    if (c[idx] === 1) {
+      e -= 3;
+    } else {
+      e -= 1;
+    }
+
+    if (idx + k > c.length - 1) {
+      idx = idx + k - c.length;
+    } else {
+      idx += k;
+    }
+  } while (idx > 0);
+
+  return e;
+}
+
+// console.log(jumpingOnClouds([1, 1, 1, 0, 1, 1, 0, 0, 0, 0], 3));
