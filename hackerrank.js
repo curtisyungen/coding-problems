@@ -299,3 +299,28 @@ function squares(a, b) {
 }
 
 // console.log(35, 70);
+
+// Problem: Library Fine
+// Easy
+
+function libraryFine(d1, m1, y1, d2, m2, y2) {
+  if (y1 < y2) {
+    return 0;
+  } else if (y1 > y2) {
+    return 10000 * Math.abs(y1 - y2);
+  }
+
+  if (m1 < m2) {
+    return 0;
+  } else if (m1 > m2) {
+    return 500 * Math.abs(m2 - m1);
+  }
+
+  if (d1 > d2) {
+    return 15 * Math.abs(d2 - d1);
+  } else {
+    return 0;
+  }
+}
+
+// console.log(libraryFine(28, 2, 2015, 15, 4, 2015));
