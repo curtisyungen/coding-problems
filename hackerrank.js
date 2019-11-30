@@ -111,3 +111,17 @@ function utopianTree(n) {
   }
   return h;
 }
+
+// Problem: Angry Professor
+// https://www.hackerrank.com/challenges/angry-professor/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+function angryProfessor(k, a) {
+  let late = 0;
+  for (var i in a) {
+    if (a[i] > 0) {
+      late += 1;
+    }
+  }
+
+  return a.length - late >= k ? "NO" : "YES";
+}
