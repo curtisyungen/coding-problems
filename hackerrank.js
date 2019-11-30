@@ -168,3 +168,11 @@ function viralAdvertising(n) {
 
   return total;
 }
+
+// Problem: Save the Prisoner
+// https://www.hackerrank.com/challenges/save-the-prisoner/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+function saveThePrisoner(n, m, s) {
+  if (Math.floor(m + s - 1) % n === 0) return n;
+  return Math.floor((m + s - 1) % n);
+}
