@@ -286,3 +286,16 @@ function appendAndDelete(s, t, k) {
 }
 
 // console.log(appendAndDelete("aaaaaaaaaa", "aaaaa", 7));
+
+// Problem: Sherlock and Squares
+// Easy
+
+function squares(a, b) {
+  let sqrtA = Math.sqrt(a);
+  let sqrtB = Math.sqrt(b);
+  let count = Math.floor(sqrtB) - Math.ceil(sqrtA) + 1;
+
+  return count > 0 ? count : 0;
+}
+
+// console.log(35, 70);
