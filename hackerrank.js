@@ -50,3 +50,49 @@ function hurdleRace(k, height) {
   if (diff > 0) return diff;
   return 0;
 }
+
+// Problem: Designer PDF Viewer
+// https://www.hackerrank.com/challenges/designer-pdf-viewer/problem?h_r=next-challenge&h_v=zen
+
+function designerPdfViewer(h, word) {
+  let letters = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z"
+  ];
+
+  if (word.length === 0) return 0;
+
+  let maxHeight = 0;
+  for (var c in word) {
+    let idx = letters.indexOf(word[c]);
+    maxHeight = Math.max(h[idx], maxHeight);
+  }
+
+  let area = maxHeight * word.length;
+
+  return area;
+}
