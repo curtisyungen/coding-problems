@@ -196,4 +196,21 @@ function circularArrayRotation(a, k, queries) {
   return answers;
 }
 
-console.log(circularArrayRotation([1, 2, 3], 2, [0, 1, 2]));
+// console.log(circularArrayRotation([1, 2, 3], 2, [0, 1, 2]));
+
+// Problem: Sequence Equation
+// https://www.hackerrank.com/challenges/permutation-equation/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+function permutationEquation(p) {
+  let yArr = [];
+  let idx;
+
+  for (var x = 1; x <= p.length; x++) {
+    idx = p.indexOf(x) + 1;
+    yArr.push(p.indexOf(idx) + 1);
+  }
+
+  return yArr;
+}
+
+// console.log(permutationEquation([2, 3, 1]));
