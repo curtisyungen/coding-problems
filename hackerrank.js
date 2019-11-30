@@ -151,3 +151,20 @@ function beautifulDays(i, j, k) {
 }
 
 // console.log(beautifulDays(1, 2000000, 23047885));
+
+// Problem: Viral Advertising
+// https://www.hackerrank.com/challenges/strange-advertising/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+function viralAdvertising(n) {
+  let shared = 5;
+  let liked = 0;
+  let total = 0;
+
+  for (var i = 0; i < n; i++) {
+    liked = Math.floor(shared / 2);
+    total += liked;
+    shared = liked * 3;
+  }
+
+  return total;
+}
