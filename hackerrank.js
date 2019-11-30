@@ -324,3 +324,26 @@ function libraryFine(d1, m1, y1, d2, m2, y2) {
 }
 
 // console.log(libraryFine(28, 2, 2015, 15, 4, 2015));
+
+// Problem: Cut the Sticks
+// Easy
+
+function cutTheSticks(arr) {
+  let sticks = [];
+  while (arr.length > 0) {
+    sticks.push(arr.length);
+    let min = Math.min(...arr);
+    for (var a = 0; a < arr.length; a++) {
+      if (arr[a] === min) {
+        arr.splice(a, 1);
+        a -= 1;
+      } else {
+        arr[a] -= min;
+      }
+    }
+  }
+
+  return sticks;
+}
+
+// console.log(cutTheSticks([5, 4, 4, 2, 2, 8]));
