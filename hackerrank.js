@@ -125,3 +125,29 @@ function angryProfessor(k, a) {
 
   return a.length - late >= k ? "NO" : "YES";
 }
+
+// Problem: Beautiful Days at the Movies
+// https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+function beautifulDays(i, j, k) {
+  let newNum, orig;
+  let count = 0;
+  for (var s = i; s <= j; s++) {
+    orig = s;
+    newNum = 0;
+    while (s >= 1) {
+      newNum = newNum * 10 + Math.floor(s % 10);
+      s = s / 10;
+    }
+
+    if (Number.isInteger(Math.abs(orig - newNum) / k)) {
+      count += 1;
+    }
+
+    s = orig;
+  }
+
+  return count;
+}
+
+// console.log(beautifulDays(1, 2000000, 23047885));
