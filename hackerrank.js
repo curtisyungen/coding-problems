@@ -96,3 +96,18 @@ function designerPdfViewer(h, word) {
 
   return area;
 }
+
+// Problem: Utopian Tree
+// https://www.hackerrank.com/challenges/utopian-tree/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
+
+function utopianTree(n) {
+  let h = 0;
+  for (var i = 0; i <= n; i++) {
+    if (i % 2 === 0) {
+      h += 1;
+    } else {
+      h *= 2;
+    }
+  }
+  return h;
+}
