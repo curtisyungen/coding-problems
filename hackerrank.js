@@ -176,3 +176,24 @@ function saveThePrisoner(n, m, s) {
   if (Math.floor(m + s - 1) % n === 0) return n;
   return Math.floor((m + s - 1) % n);
 }
+
+// Problem: Circular Array Rotation
+//
+
+function circularArrayRotation(a, k, queries) {
+  let kAct = Math.floor(k % a.length);
+  let idx;
+  let answers = [];
+  for (var q in queries) {
+    idx = queries[q] - kAct;
+    if (idx >= 0) {
+      answers.push(a[idx]);
+    } else {
+      answers.push(a[idx + a.length]);
+    }
+  }
+
+  return answers;
+}
+
+console.log(circularArrayRotation([1, 2, 3], 2, [0, 1, 2]));
