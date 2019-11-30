@@ -28,22 +28,25 @@ function pickingNumbers(a) {
 // https://www.hackerrank.com/challenges/climbing-the-leaderboard/problem?h_r=next-challenge&h_v=zen
 
 function climbLeaderboard(scores, alice) {
-  let ranks = [];
+  let result = [];
+  let lastIdx = 0;
+  let lastRank = 0;
+
+  alice.reverse();
+
   for (var a in alice) {
-    if (alice[a] > Math.max(...scores)) {
-      ranks.push(1);
-    } else if (alice[a] < Math.min(...scores)) {
-      ranks.push(scores.length);
-    } else {
-      for (var s = 1; s <= scores.length; s++) {
-        if (scores[s] <= alice[a] && scores[s - 1] > alice[a]) {
-          ranks.push(s);
-        }
-      }
+    for (var s in scores) {
     }
   }
-
-  return ranks;
 }
 
-console.log(climbLeaderboard([100, 90, 90, 80, 75, 60], [50, 65, 77, 90, 102]));
+// console.log(climbLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]));
+
+// Problem: The Hurdle Race
+// https://www.hackerrank.com/challenges/the-hurdle-race/problem
+
+function hurdleRace(k, height) {
+  let diff = Math.max(...height) - k;
+  if (diff > 0) return diff;
+  return 0;
+}
