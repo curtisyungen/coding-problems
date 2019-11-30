@@ -3,7 +3,7 @@
 // =====================================================================
 
 // Problem: Picking Numbers
-// EASY
+// Easy
 
 function pickingNumbers(a) {
   let sets = [];
@@ -25,7 +25,7 @@ function pickingNumbers(a) {
 }
 
 // Problem: Climbing the Leaderboard
-// EASY
+// Easy
 
 function climbLeaderboard(scores, alice) {
   let result = [];
@@ -43,7 +43,7 @@ function climbLeaderboard(scores, alice) {
 // console.log(climbLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]));
 
 // Problem: The Hurdle Race
-// EASY
+// Easy
 
 function hurdleRace(k, height) {
   let diff = Math.max(...height) - k;
@@ -52,7 +52,7 @@ function hurdleRace(k, height) {
 }
 
 // Problem: Designer PDF Viewer
-// EASY
+// Easy
 
 function designerPdfViewer(h, word) {
   let letters = [
@@ -98,7 +98,7 @@ function designerPdfViewer(h, word) {
 }
 
 // Problem: Utopian Tree
-// EASY
+// Easy
 
 function utopianTree(n) {
   let h = 0;
@@ -113,7 +113,7 @@ function utopianTree(n) {
 }
 
 // Problem: Angry Professor
-// EASY
+// Easy
 
 function angryProfessor(k, a) {
   let late = 0;
@@ -127,7 +127,7 @@ function angryProfessor(k, a) {
 }
 
 // Problem: Beautiful Days at the Movies
-// EASY
+// Easy
 
 function beautifulDays(i, j, k) {
   let newNum, orig;
@@ -153,7 +153,7 @@ function beautifulDays(i, j, k) {
 // console.log(beautifulDays(1, 2000000, 23047885));
 
 // Problem: Viral Advertising
-// EASY
+// Easy
 
 function viralAdvertising(n) {
   let shared = 5;
@@ -170,7 +170,7 @@ function viralAdvertising(n) {
 }
 
 // Problem: Save the Prisoner
-// EASY
+// Easy
 
 function saveThePrisoner(n, m, s) {
   if (Math.floor(m + s - 1) % n === 0) return n;
@@ -178,7 +178,7 @@ function saveThePrisoner(n, m, s) {
 }
 
 // Problem: Circular Array Rotation
-// EASY
+// Easy
 
 function circularArrayRotation(a, k, queries) {
   let kAct = Math.floor(k % a.length);
@@ -199,7 +199,7 @@ function circularArrayRotation(a, k, queries) {
 // console.log(circularArrayRotation([1, 2, 3], 2, [0, 1, 2]));
 
 // Problem: Sequence Equation
-// EASY
+// Easy
 
 function permutationEquation(p) {
   let yArr = [];
@@ -216,7 +216,7 @@ function permutationEquation(p) {
 // console.log(permutationEquation([2, 3, 1]));
 
 // Problem: Jumping on the Clouds
-// EASY
+// Easy
 
 function jumpingOnClouds(c, k) {
   let idx = 0;
@@ -239,3 +239,24 @@ function jumpingOnClouds(c, k) {
 }
 
 // console.log(jumpingOnClouds([1, 1, 1, 0, 1, 1, 0, 0, 0, 0], 3));
+
+// Problem: Find Digits
+// Easy
+
+function findDigits(n) {
+  let sum = 0;
+  let num = n;
+  let digit = 0;
+  while (n > 0) {
+    digit = n % 10;
+    n = Math.floor(n / 10);
+
+    if (num % digit === 0) {
+      sum += 1;
+    }
+  }
+
+  return sum;
+}
+
+// console.log(findDigits(1012));
