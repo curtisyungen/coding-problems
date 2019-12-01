@@ -414,3 +414,27 @@ function jumpingOnClouds(c) {
 // console.log(jumpingOnClouds([0, 0, 1, 0, 0, 1, 0]));
 
 // ============================================================================
+// Problem: Equalize the Array
+// Easy
+
+function equalizeArray(arr) {
+  let vals = new Object();
+  for (var i in arr) {
+    if (vals[arr[i]]) {
+      vals[arr[i]] += 1;
+    } else {
+      vals[arr[i]] = 1;
+    }
+  }
+
+  let max = 0;
+  for (var j in vals) {
+    max = Math.max(max, vals[j]);
+  }
+
+  return arr.length - max;
+}
+
+// console.log(equalizeArray([3, 3, 2, 1, 3]));
+
+// ============================================================================
