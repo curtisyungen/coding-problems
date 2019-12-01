@@ -393,3 +393,24 @@ function repeatedString(s, n) {
 // console.log(repeatedString("gfcaaaecbg", 547602));
 
 // ============================================================================
+// Problem: Jumping on the Clouds
+// Easy
+
+function jumpingOnClouds(c) {
+  let idx = 0;
+  let count = 0;
+  while (idx < c.length - 1) {
+    if (c[idx + 2] === 1) {
+      idx += 1;
+    } else {
+      idx += 2;
+    }
+    count += 1;
+  }
+
+  return count;
+}
+
+// console.log(jumpingOnClouds([0, 0, 1, 0, 0, 1, 0]));
+
+// ============================================================================
