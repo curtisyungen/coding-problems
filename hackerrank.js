@@ -1,6 +1,6 @@
 // HACKERRANK
 // hackerrank.com
-// =====================================================================
+// ============================================================================
 
 // Problem: Picking Numbers
 // Easy
@@ -24,8 +24,9 @@ function pickingNumbers(a) {
   return maxLength;
 }
 
+// ============================================================================
 // Problem: Climbing the Leaderboard
-// Easy
+// Medium
 
 function climbLeaderboard(scores, alice) {
   let result = [];
@@ -42,6 +43,7 @@ function climbLeaderboard(scores, alice) {
 
 // console.log(climbLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]));
 
+// ============================================================================
 // Problem: The Hurdle Race
 // Easy
 
@@ -51,6 +53,7 @@ function hurdleRace(k, height) {
   return 0;
 }
 
+// ============================================================================
 // Problem: Designer PDF Viewer
 // Easy
 
@@ -97,6 +100,7 @@ function designerPdfViewer(h, word) {
   return area;
 }
 
+// ============================================================================
 // Problem: Utopian Tree
 // Easy
 
@@ -112,6 +116,7 @@ function utopianTree(n) {
   return h;
 }
 
+// ============================================================================
 // Problem: Angry Professor
 // Easy
 
@@ -126,6 +131,7 @@ function angryProfessor(k, a) {
   return a.length - late >= k ? "NO" : "YES";
 }
 
+// ============================================================================
 // Problem: Beautiful Days at the Movies
 // Easy
 
@@ -152,6 +158,7 @@ function beautifulDays(i, j, k) {
 
 // console.log(beautifulDays(1, 2000000, 23047885));
 
+// ============================================================================
 // Problem: Viral Advertising
 // Easy
 
@@ -169,6 +176,7 @@ function viralAdvertising(n) {
   return total;
 }
 
+// ============================================================================
 // Problem: Save the Prisoner
 // Easy
 
@@ -177,6 +185,7 @@ function saveThePrisoner(n, m, s) {
   return Math.floor((m + s - 1) % n);
 }
 
+// ============================================================================
 // Problem: Circular Array Rotation
 // Easy
 
@@ -198,6 +207,7 @@ function circularArrayRotation(a, k, queries) {
 
 // console.log(circularArrayRotation([1, 2, 3], 2, [0, 1, 2]));
 
+// ============================================================================
 // Problem: Sequence Equation
 // Easy
 
@@ -215,6 +225,7 @@ function permutationEquation(p) {
 
 // console.log(permutationEquation([2, 3, 1]));
 
+// ============================================================================
 // Problem: Jumping on the Clouds
 // Easy
 
@@ -240,6 +251,7 @@ function jumpingOnClouds(c, k) {
 
 // console.log(jumpingOnClouds([1, 1, 1, 0, 1, 1, 0, 0, 0, 0], 3));
 
+// ============================================================================
 // Problem: Find Digits
 // Easy
 
@@ -261,6 +273,7 @@ function findDigits(n) {
 
 // console.log(findDigits(1012));
 
+// ============================================================================
 // Problem: Append and Delete
 // Easy
 
@@ -287,6 +300,7 @@ function appendAndDelete(s, t, k) {
 
 // console.log(appendAndDelete("aaaaaaaaaa", "aaaaa", 7));
 
+// ============================================================================
 // Problem: Sherlock and Squares
 // Easy
 
@@ -300,6 +314,7 @@ function squares(a, b) {
 
 // console.log(35, 70);
 
+// ============================================================================
 // Problem: Library Fine
 // Easy
 
@@ -325,6 +340,7 @@ function libraryFine(d1, m1, y1, d2, m2, y2) {
 
 // console.log(libraryFine(28, 2, 2015, 15, 4, 2015));
 
+// ============================================================================
 // Problem: Cut the Sticks
 // Easy
 
@@ -347,3 +363,33 @@ function cutTheSticks(arr) {
 }
 
 // console.log(cutTheSticks([5, 4, 4, 2, 2, 8]));
+
+// ============================================================================
+// Problem: Repeated String
+// Medium
+
+function repeatedString(s, n) {
+  let numRepeats = Math.floor(n / s.length);
+
+  let numAs = 0;
+  for (var i in s) {
+    if (s[i] === "a") {
+      numAs += 1;
+    }
+  }
+
+  let total = numAs * numRepeats;
+
+  let remainder = n % s.length;
+  for (var j = 0; j < remainder; j++) {
+    if (s[j] === "a") {
+      total += 1;
+    }
+  }
+
+  return total;
+}
+
+// console.log(repeatedString("gfcaaaecbg", 547602));
+
+// ============================================================================
