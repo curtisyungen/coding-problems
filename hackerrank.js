@@ -438,3 +438,41 @@ function equalizeArray(arr) {
 // console.log(equalizeArray([3, 3, 2, 1, 3]));
 
 // ============================================================================
+// Problem: ACM ICPC Team
+// Easy
+
+function acmTeam(topic) {
+  let idx = 0;
+  let length;
+  let maxLength = 0;
+  let combos = 0;
+
+  while (idx < topic.length - 1) {
+    for (var i = idx + 1; i < topic.length; i++) {
+      let firstStr = topic[idx];
+      let secondStr = topic[i];
+
+      length = 0;
+      for (var j in firstStr) {
+        if (firstStr[j] === "1" || secondStr[j] === "1") {
+          length += 1;
+        }
+
+        if (length > maxLength) {
+          maxLength = length;
+          combos = 1;
+        } else if (length === maxLength) {
+          combos += 1;
+        }
+      }
+    }
+    idx += 1;
+  }
+
+  return [maxLength, combos];
+}
+
+// console.log(acmTeam(["10101", "11100", "11010", "00101"]));
+
+// ============================================================================
+// Problem:
