@@ -478,7 +478,7 @@ function acmTeam(topic) {
 // Problem: Taum and B'Day
 // Easy
 
-const BigNumber = require("bignumber.js");
+// const BigNumber = require("bignumber.js");
 
 function taumBday(b, w, bc, wc, z) {
   [b, w, bc, wc, z] = [...arguments].map(x => new BigNumber(x));
@@ -506,4 +506,30 @@ function beautifulTriplets(d, arr) {
 }
 
 // ============================================================================
-// Problem:
+// Problem: Minimum Distances
+// Easy
+
+function minimumDistances(a) {
+  let idx1 = new Object();
+  let idx2 = new Object();
+  for (var i = 0; i < a.length; i++) {
+    if (idx1[a[i]] >= 0) {
+      idx2[a[i]] = i;
+    } else {
+      idx1[a[i]] = i;
+    }
+  }
+
+  let min = a.length;
+  let dist = 0;
+  for (var j in idx1) {
+    if (idx2[j]) {
+      dist = idx2[j] - idx1[j];
+      min = Math.min(min, dist);
+    }
+  }
+
+  return min !== a.length ? min : -1;
+}
+
+// console.log(minimumDistances([1, 1]));
