@@ -475,7 +475,7 @@ function acmTeam(topic) {
 // console.log(acmTeam(["10101", "11100", "11010", "00101"]));
 
 // ============================================================================
-// Problem:
+// Problem: Taum and B'Day
 // Easy
 
 const BigNumber = require("bignumber.js");
@@ -488,3 +488,22 @@ function taumBday(b, w, bc, wc, z) {
 }
 
 // ============================================================================
+// Problem: Beautiful Triplets
+// Easy
+
+function beautifulTriplets(d, arr) {
+  let count = 0;
+  for (var a in arr) {
+    let j = arr[a] + d;
+    let k = arr[a] + 2 * d;
+
+    if (arr.indexOf(j) !== -1 && arr.indexOf(k) !== -1) {
+      count += 1;
+    }
+  }
+
+  return count;
+}
+
+// ============================================================================
+// Problem:
