@@ -533,3 +533,24 @@ function minimumDistances(a) {
 }
 
 // console.log(minimumDistances([1, 1]));
+
+// ============================================================================
+// Problem: Halloween Sale
+// Easy
+
+function howManyGames(p, d, m, s) {
+  let count = 0;
+
+  while (s >= p) {
+    count += 1;
+    s -= p;
+    p = Math.max(p - d, m);
+  }
+
+  return count;
+}
+
+// console.log(howManyGames(20, 3, 6, 85));
+
+// ============================================================================
+// Problem:
