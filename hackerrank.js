@@ -665,3 +665,33 @@ function compare(a, b) {
 // console.log(flatlandSpaceStations(100, [93, 41, 91, 61, 30, 6, 25, 90, 97]));
 
 // ============================================================================
+// Problem: Super Reduced String
+// Easy
+
+function superReducedString(s) {
+  let arr = [];
+  for (var i = 0; i < s.length; i++) {
+    arr.push(s[i]);
+  }
+
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      arr.splice(i, 2);
+      i = 0;
+    }
+  }
+
+  if (arr.length === 0 || arr.length === 2) {
+    return "Empty String";
+  } else {
+    return arr.join("");
+  }
+}
+
+console.log(
+  superReducedString(
+    "ppffccmmssnnhhbbmmggxxaaooeeqqeennffzzaaeeyyaaggggeessvvssggbbccnnrrjjxxuuzzbbjjrruuaaccaaoommkkkkxx"
+  )
+);
+
+// ============================================================================
