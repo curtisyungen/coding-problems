@@ -595,3 +595,32 @@ function serviceLane(n, w, cases) {
 }
 
 // ============================================================================
+// Problem: Lisa's Workbook
+// Easy
+
+function workbook(n, k, arr) {
+  let pages = 0;
+  let totalProbs = 0;
+  let special = 0;
+
+  for (var a in arr) {
+    pages += 1;
+    totalProbs = 0;
+    for (var i = 0; i < arr[a]; i++) {
+      totalProbs += 1;
+      if (i % k === 0 && i > 0) {
+        pages += 1;
+      }
+
+      if (totalProbs === pages) {
+        special += 1;
+      }
+    }
+  }
+
+  return special;
+}
+
+// console.log(workbook(5, 3, [4, 2, 6, 1, 10]));
+
+// ============================================================================
