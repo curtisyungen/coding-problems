@@ -553,4 +553,25 @@ function howManyGames(p, d, m, s) {
 // console.log(howManyGames(20, 3, 6, 85));
 
 // ============================================================================
+// Problem: Chocolate Feast
+// Easy
+
+function chocolateFeast(n, c, m) {
+  let wrappers = Math.floor(n / c);
+  let bars = wrappers;
+
+  while (wrappers >= m) {
+    wrappers -= m;
+    bars += 1;
+    wrappers += 1;
+  }
+
+  return bars;
+}
+
+// console.log(chocolateFeast(10, 2, 5));
+// console.log(chocolateFeast(12, 4, 4));
+// console.log(chocolateFeast(6, 2, 2));
+
+// ============================================================================
 // Problem:
