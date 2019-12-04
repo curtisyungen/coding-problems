@@ -574,4 +574,24 @@ function chocolateFeast(n, c, m) {
 // console.log(chocolateFeast(6, 2, 2));
 
 // ============================================================================
-// Problem:
+// Problem: Service Lane
+// Easy
+
+function serviceLane(n, w, cases) {
+  let maxes = [];
+  for (var c in cases) {
+    let i = cases[c][0];
+    let j = cases[c][1];
+
+    let max = 100000;
+
+    for (var k = i; k < j + 1; k++) {
+      max = Math.min(max, w[k]);
+    }
+    maxes.push(max);
+  }
+
+  return maxes;
+}
+
+// ============================================================================
