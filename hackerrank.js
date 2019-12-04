@@ -624,3 +624,44 @@ function workbook(n, k, arr) {
 // console.log(workbook(5, 3, [4, 2, 6, 1, 10]));
 
 // ============================================================================
+// Problem: Flatland Space Stations
+// Easy
+
+function flatlandSpaceStations(n, c) {
+  if (n === c.length) {
+    return 0;
+  }
+
+  c.sort(compare);
+
+  let max = 0;
+  let count = 0;
+
+  for (var i = 1; i <= n; i++) {
+    if (c.indexOf(i) !== -1) {
+      max = Math.max(Math.floor(count / 2), max);
+      count = 0;
+    } else {
+      count += 1;
+    }
+  }
+
+  max = Math.max(max, n - c[c.length - 1] - 1);
+
+  return max;
+}
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  } else if (a > b) {
+    return 1;
+  } else {
+    return -1;
+  }
+}
+
+// console.log(flatlandSpaceStations(20, [13, 1, 11, 10, 6]));
+// console.log(flatlandSpaceStations(100, [93, 41, 91, 61, 30, 6, 25, 90, 97]));
+
+// ============================================================================
