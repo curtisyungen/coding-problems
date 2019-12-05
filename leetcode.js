@@ -204,6 +204,61 @@ var romanToInt = function(s) {
   return number;
 };
 
-console.log(romanToInt("III"));
-console.log(romanToInt("CIV"));
-console.log(romanToInt("XC"));
+// console.log(romanToInt("III"));
+// console.log(romanToInt("CIV"));
+// console.log(romanToInt("XC"));
+
+// ============================================================================
+// Problem: Longest Common Prefix
+// Easy
+
+var longestCommonPrefix = function(strs) {
+  let letter;
+  let prefix = "";
+  let char = 0;
+  let match = true;
+
+  if (!strs || strs.length === 0) {
+    return "";
+  }
+
+  if (strs.length === 1) {
+    return strs[0];
+  }
+
+  if (strs[0].length < 1) {
+    return strs[0];
+  }
+
+  let minLength = Number.MAX_VALUE;
+  for (var k = 0; k < strs.length - 1; k++) {
+    minLength = Math.min(strs[k].length, minLength);
+  }
+
+  while (match) {
+    letter = strs[0][char];
+
+    for (var i = 1; i < strs.length; i++) {
+      if (strs[i][char] !== letter) {
+        match = false;
+        break;
+      }
+    }
+
+    if (match) {
+      prefix += letter;
+    }
+
+    if (char < minLength - 1) {
+      char += 1;
+    } else {
+      match = false;
+    }
+  }
+
+  return prefix.length > 0 ? prefix : "";
+};
+
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// ============================================================================
