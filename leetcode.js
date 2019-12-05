@@ -209,56 +209,60 @@ var romanToInt = function(s) {
 // console.log(romanToInt("XC"));
 
 // ============================================================================
-// Problem: Longest Common Prefix
+// Problem 14: Longest Common Prefix
 // Easy
 
 var longestCommonPrefix = function(strs) {
-  let letter;
-  let prefix = "";
-  let char = 0;
-  let match = true;
-
-  if (!strs || strs.length === 0) {
+  if (strs.length === 0) {
     return "";
   }
 
-  if (strs.length === 1) {
-    return strs[0];
-  }
+  let prefix = strs[0];
 
-  if (strs[0].length < 1) {
-    return strs[0];
-  }
-
-  let minLength = Number.MAX_VALUE;
-  for (var k = 0; k < strs.length - 1; k++) {
-    minLength = Math.min(strs[k].length, minLength);
-  }
-
-  while (match) {
-    letter = strs[0][char];
-
-    for (var i = 1; i < strs.length; i++) {
-      if (strs[i][char] !== letter) {
-        match = false;
-        break;
+  for (var i = 1; i < strs.length; i++) {
+    while (strs[i].indexOf(prefix) !== 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
+      if (prefix.length === 0) {
+        return "";
       }
     }
-
-    if (match) {
-      prefix += letter;
-    }
-
-    if (char < minLength - 1) {
-      char += 1;
-    } else {
-      match = false;
-    }
   }
 
-  return prefix.length > 0 ? prefix : "";
+  return prefix;
 };
 
 // console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// ============================================================================
+// Problem 20: Valid Parentheses
+// Easy
+
+var isValid = function(s) {
+  if (s === null || s.length === 0) {
+    return true;
+  }
+
+  if (s.length === 1) {
+    return false;
+  }
+
+  let stack = [];
+
+  for (var i in s) {
+    if (s[i] === "(") {
+      stack.push(")");
+    } else if (s[i] === "{") {
+      stack.push("}");
+    } else if (s[i] === "[") {
+      stack.push("]");
+    } else if (s[i] !== stack.pop()) {
+      return false;
+    }
+  }
+
+  return stack.length === 0 ? true : false;
+};
+
+// console.log(isValid("()"));
 
 // ============================================================================
