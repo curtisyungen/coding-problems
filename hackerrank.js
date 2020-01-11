@@ -688,10 +688,34 @@ function superReducedString(s) {
   }
 }
 
-console.log(
-  superReducedString(
-    "ppffccmmssnnhhbbmmggxxaaooeeqqeennffzzaaeeyyaaggggeessvvssggbbccnnrrjjxxuuzzbbjjrruuaaccaaoommkkkkxx"
-  )
-);
+// console.log(
+//   superReducedString(
+//     "ppffccmmssnnhhbbmmggxxaaooeeqqeennffzzaaeeyyaaggggeessvvssggbbccnnrrjjxxuuzzbbjjrruuaaccaaoommkkkkxx"
+//   )
+// );
+
+// ============================================================================
+// Problem: Non-Divisible Subset
+// Medium
+
+function fairRations(B) {
+  let lastId = -1;
+  let count = 0;
+
+  for (var i = 0; i < B.length; i++) {
+    if (B[i] % 2 !== 0) {
+      if (lastId === -1) {
+        lastId = i;
+      } else {
+        count += Math.abs(i - lastId) * 2;
+        lastId = -1;
+      }
+    }
+  }
+
+  return lastId !== -1 ? "NO" : count;
+}
+
+console.log(fairRations([2, 3, 4, 5, 6]));
 
 // ============================================================================
