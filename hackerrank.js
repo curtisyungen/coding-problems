@@ -28,20 +28,24 @@ function pickingNumbers(a) {
 // Problem: Climbing the Leaderboard
 // Medium
 
-function climbLeaderboard(scores, alice) {
-  let result = [];
-  let lastIdx = 0;
-  let lastRank = 0;
-
-  alice.reverse();
+function climbingLeaderboard(scores, alice) {
+  let ranks = [];
 
   for (var a in alice) {
-    for (var s in scores) {
+    if (alice[a] > scores[0]) {
+      ranks.push(1);
+    } else if (alice[a] < scores[scores.length - 1]) {
+      ranks.push(scores.length - 1);
+    } else {
     }
   }
+
+  return ranks;
 }
 
-// console.log(climbLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]));
+// console.log(
+//   climbingLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120])
+// );
 
 // ============================================================================
 // Problem: The Hurdle Race
@@ -695,8 +699,8 @@ function superReducedString(s) {
 // );
 
 // ============================================================================
-// Problem: Non-Divisible Subset
-// Medium
+// Problem: Fair Rations
+// Easy
 
 function fairRations(B) {
   let lastId = -1;
@@ -716,6 +720,39 @@ function fairRations(B) {
   return lastId !== -1 ? "NO" : count;
 }
 
-console.log(fairRations([2, 3, 4, 5, 6]));
+// console.log(fairRations([2, 3, 5, 5, 6, 7]));
+
+// ============================================================================
+// Problem: Cavity Map
+// Easy
+
+function cavityMap(grid) {
+  for (var r = 1; r < grid.length - 1; r++) {
+    for (var c = 1; c < grid[r].length - 1; c++) {
+      let prevRow = grid[r - 1][c];
+      let nextRow = grid[r + 1][c];
+      let prevCol = grid[r][c - 1];
+      let nextCol = grid[r][c + 1];
+      let currVal = grid[r][c];
+
+      if (
+        currVal > prevRow &&
+        currVal > nextRow &&
+        currVal > prevCol &&
+        currVal > nextCol
+      ) {
+        grid[r] = replaceAt(grid[r], c, "X");
+      }
+    }
+  }
+
+  return grid;
+}
+
+function replaceAt(string, index, replace) {
+  return string.substring(0, index) + replace + string.substring(index + 1);
+}
+
+// console.log(cavityMap(["1112", "1912", "1892", "1234"]));
 
 // ============================================================================
