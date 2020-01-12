@@ -842,3 +842,19 @@ function happyLadybugs(b) {
 // console.log(happyLadybugs("RBY_YBR"));
 
 // ============================================================================
+// Problem: Strange Counter
+// Easy
+
+function strangeCounter(t) {
+  let rem = 3;
+  while (t > rem) {
+    t = t - rem;
+    rem *= 2;
+  }
+
+  return rem - t + 1;
+}
+
+// console.log(strangeCounter(4));
+
+// ============================================================================
