@@ -756,3 +756,30 @@ function replaceAt(string, index, replace) {
 // console.log(cavityMap(["1112", "1912", "1892", "1234"]));
 
 // ============================================================================
+// Problem: Manasa and Stones
+// Easy
+
+function stones(n, a, b) {
+  let sums, sum;
+
+  for (var i = 0; i < n; i++) {
+    sums = [];
+
+    let firstSum = (n - 1) * Math.min(a, b);
+    sums.push(firstSum);
+
+    sum = 0;
+
+    while (sum + firstSum < (n - 1) * Math.max(a, b)) {
+      sum += Math.abs(b - a);
+      sums.push(sum + firstSum);
+    }
+
+    return sums;
+  }
+}
+
+// console.log(stones(3, 1, 2));
+// console.log(stones(4, 10, 100));
+
+// ============================================================================
