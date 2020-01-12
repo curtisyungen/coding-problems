@@ -636,37 +636,25 @@ function flatlandSpaceStations(n, c) {
     return 0;
   }
 
-  c.sort(compare);
-
-  let max = 0;
-  let count = 0;
-
-  for (var i = 1; i <= n; i++) {
-    if (c.indexOf(i) !== -1) {
-      max = Math.max(Math.floor(count / 2), max);
-      count = 0;
-    } else {
-      count += 1;
+  let maxDist = 0;
+  let dist = 0;
+  for (var i = 0; i < n; i++) {
+    dist += 1;
+    if (c.indexOf(i) > -1) {
+      maxDist = Math.max(dist, maxDist);
+      dist = 0;
     }
   }
 
-  max = Math.max(max, n - c[c.length - 1] - 1);
+  maxDist = Math.max(dist, maxDist);
 
-  return max;
-}
-
-function compare(a, b) {
-  if (a === b) {
-    return 0;
-  } else if (a > b) {
-    return 1;
-  } else {
-    return -1;
+  let lastDist = 0;
+  if (c.indexOf(i) === -1) {
+    lastDist = i - Math.max(...c) - 1;
   }
-}
 
-// console.log(flatlandSpaceStations(20, [13, 1, 11, 10, 6]));
-// console.log(flatlandSpaceStations(100, [93, 41, 91, 61, 30, 6, 25, 90, 97]));
+  return Math.max(Math.floor(maxDist / 2), Math.min(...c), lastDist);
+}
 
 // ============================================================================
 // Problem: Super Reduced String
