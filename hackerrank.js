@@ -783,3 +783,62 @@ function stones(n, a, b) {
 // console.log(stones(4, 10, 100));
 
 // ============================================================================
+// Problem: Happy Ladybugs
+// Easy
+
+function happyLadybugs(b) {
+  let bugs = {};
+
+  for (var i = 0; i < b.length; i++) {
+    if (!bugs[b[i]]) {
+      bugs[b[i]] = 1;
+    } else {
+      bugs[b[i]] += 1;
+    }
+  }
+
+  // If there are no bugs
+  if (Object.keys(bugs).length === 0) {
+    return "YES";
+  }
+
+  // Check if there is one of any letter
+  let noMatch = false;
+  Object.keys(bugs).map(bug => {
+    if (bugs[bug] === 1 && bug !== "_") {
+      noMatch = true;
+    }
+  });
+
+  if (noMatch) {
+    return "NO";
+  }
+
+  // Check if there are no blanks
+  let noBlanks = true;
+  Object.keys(bugs).map(bug => {
+    if (bug === "_") {
+      noBlanks = false;
+    }
+  });
+
+  // Check if string is happy
+  let isHappy = true;
+  for (var i = 0; i < b.length; i++) {
+    if (b[i] !== b[i - 1]) {
+      if (b[i] !== b[i + 1]) {
+        isHappy = false;
+      }
+    }
+  }
+
+  if (noBlanks && !isHappy) {
+    return "NO";
+  }
+
+  return "YES";
+}
+
+// console.log(happyLadybugs("RBY_YBR"));
+
+// ============================================================================
