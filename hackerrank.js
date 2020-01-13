@@ -944,3 +944,28 @@ function minimumNumber(n, password) {
 // console.log(minimumNumber(1, "AUzs-nV"));
 
 // ============================================================================
+// Problem: Insertion Sort, Part 1
+// Easy
+
+function insertionSort1(n, arr) {
+  let currIdx = n - 1;
+  let num = arr[currIdx];
+  let insert = false;
+
+  while (currIdx >= 0 && !insert) {
+    if (arr[currIdx - 1] < num) {
+      arr[currIdx] = num;
+      insert = true;
+    } else if (currIdx === 0) {
+      arr[currIdx] = num;
+      insert = true;
+    } else {
+      arr[currIdx] = arr[currIdx - 1];
+      currIdx -= 1;
+    }
+
+    console.log(...arr);
+  }
+}
+
+// ============================================================================
