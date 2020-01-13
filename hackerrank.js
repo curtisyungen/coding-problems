@@ -861,3 +861,31 @@ function camelcase(s) {
 }
 
 // ============================================================================
+// Problem: Kaprekar Numbers
+// Easy
+
+function kaprekarNumbers(p, q) {
+  let nums = [];
+  let kNum, num1, num2;
+  for (var i = p; i <= q; i++) {
+    if (i === 1) {
+      nums.push(1);
+    }
+
+    kNum = Math.pow(i, 2).toString();
+    num1 = parseInt(kNum.substring(0, kNum.length / 2));
+    num2 = parseInt(kNum.substring(kNum.length / 2, kNum.length));
+
+    if (num1 + num2 === i) {
+      nums.push(i);
+    }
+  }
+
+  if (nums.length === 0) {
+    return "INVALID RANGE";
+  }
+
+  return nums;
+}
+
+// ============================================================================
