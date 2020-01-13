@@ -846,3 +846,18 @@ function strangeCounter(t) {
 // console.log(strangeCounter(4));
 
 // ============================================================================
+// Problem: Camel Case
+// Easy
+
+function camelcase(s) {
+  let words = 1;
+  for (var i in s) {
+    if (s.charCodeAt(i) >= 65 && s.charCodeAt(i) <= 90) {
+      words += 1;
+    }
+  }
+
+  return words;
+}
+
+// ============================================================================
