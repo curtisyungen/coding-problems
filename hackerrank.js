@@ -889,3 +889,58 @@ function kaprekarNumbers(p, q) {
 }
 
 // ============================================================================
+// Problem: Strong Password
+// Easy
+
+function minimumNumber(n, password) {
+  let hasNumber = false;
+  let hasSpecial = false;
+  let hasCapital = false;
+  let hasLower = false;
+
+  password = password.toString();
+
+  let ch;
+  for (var i in password) {
+    ch = password.charCodeAt(i);
+    if (ch >= 65 && ch <= 90) {
+      hasCapital = true;
+    }
+
+    if (ch >= 33 && ch <= 45) {
+      hasSpecial = true;
+    }
+
+    if (ch >= 97 && ch <= 122) {
+      hasLower = true;
+    }
+
+    if (ch >= 48 && ch <= 57) {
+      hasNumber = true;
+    }
+  }
+
+  let add = 0;
+  if (!hasCapital) {
+    add += 1;
+  }
+  if (!hasSpecial) {
+    add += 1;
+  }
+  if (!hasLower) {
+    add += 1;
+  }
+  if (!hasNumber) {
+    add += 1;
+  }
+
+  if (password.length + add < 6) {
+    add += 6 - (password.length + add);
+  }
+
+  return add;
+}
+
+// console.log(minimumNumber(1, "AUzs-nV"));
+
+// ============================================================================
