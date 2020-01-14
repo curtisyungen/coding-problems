@@ -969,3 +969,42 @@ function insertionSort1(n, arr) {
 }
 
 // ============================================================================
+// Problem: Two Characters
+// Easy
+
+function alternate(s) {
+  let letSet = new Set(s);
+  let letArr = Array.from(letSet);
+
+  let maxStr = "";
+  let maxLength = 0;
+
+  for (var j = 0; j < letArr.length - 1; j++) {
+    for (var k = j + 1; k < letArr.length; k++) {
+      maxStr = "";
+      for (var m = 0; m < s.length; m++) {
+        if (s[m] === letArr[j] || s[m] === letArr[k]) {
+          maxStr += s[m];
+        }
+      }
+      if (validateString(maxStr)) {
+        maxLength = Math.max(maxStr.length, maxLength);
+      }
+    }
+  }
+
+  return maxLength;
+}
+
+function validateString(str) {
+  for (var i = 0; i < str.length - 1; i++) {
+    if (str.charAt(i) === str.charAt(i + 1)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// console.log(alternate("beabeefeab"));
+
+// ============================================================================
