@@ -1039,3 +1039,25 @@ function caesarCipher(s, k) {
 // console.log(caesarCipher("middle-Outz", 2));
 
 // ============================================================================
+// Problem: Mars Exploration
+// Easy
+function marsExploration(s) {
+  let diffs = 0;
+
+  for (var j = 0; j < s.length; j += 3) {
+    if (s[j] !== "S") {
+      diffs += 1;
+    }
+    if (s[j + 1] !== "O") {
+      diffs += 1;
+    }
+    if (s[j + 2] !== "S") {
+      diffs += 1;
+    }
+  }
+
+  return diffs;
+}
+
+// console.log(marsExploration("SOSSOS"));
+// ============================================================================
