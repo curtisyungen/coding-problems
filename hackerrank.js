@@ -1008,3 +1008,34 @@ function validateString(str) {
 // console.log(alternate("beabeefeab"));
 
 // ============================================================================
+// Problem: Caesar Cypher
+// Easy
+
+function caesarCipher(s, k) {
+  let newStr = "";
+  let newCode = "";
+  for (var i in s) {
+    if (s.charCodeAt(i) >= 65 && s.charCodeAt(i) <= 90) {
+      newCode = s.charCodeAt(i) + (k % 26);
+
+      if (newCode > 90) {
+        newCode -= 26;
+      }
+      newStr += String.fromCharCode(newCode);
+    } else if (s.charCodeAt(i) >= 97 && s.charCodeAt(i) <= 122) {
+      newCode = s.charCodeAt(i) + (k % 26);
+      if (newCode > 122) {
+        newCode -= 26;
+      }
+      newStr += String.fromCharCode(newCode);
+    } else {
+      newStr += s[i];
+    }
+  }
+
+  return newStr;
+}
+
+// console.log(caesarCipher("middle-Outz", 2));
+
+// ============================================================================
