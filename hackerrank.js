@@ -1082,3 +1082,22 @@ function hackerrankInString(s) {
 }
 
 // ============================================================================
+// Problem: Pangrams
+// Easy
+
+function pangrams(s) {
+  let letters = new Set();
+  for (var i in s) {
+    if (s[i] !== " ") {
+      letters.add(s[i].toLowerCase());
+    }
+  }
+
+  if (letters.size === 26) {
+    return "pangram";
+  }
+
+  return "not pangram";
+}
+
+// ============================================================================
