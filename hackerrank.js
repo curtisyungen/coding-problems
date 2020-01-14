@@ -1060,4 +1060,25 @@ function marsExploration(s) {
 }
 
 // console.log(marsExploration("SOSSOS"));
+
+// ============================================================================
+// Problem: Hackerrank in a String
+// Easy
+
+function hackerrankInString(s) {
+  let hackerrank = Array.from("hackerrank");
+  let letter = 0;
+  for (var i in s) {
+    if (s[i] === hackerrank[letter]) {
+      letter += 1;
+    }
+  }
+
+  if (letter === 10) {
+    return "YES";
+  }
+
+  return "NO";
+}
+
 // ============================================================================
