@@ -1101,3 +1101,62 @@ function pangrams(s) {
 }
 
 // ============================================================================
+// Problem: Between Two Sets
+// Easy
+
+function getTotalX(a, b) {
+  let lcmA = a[0];
+  let gcdB = b[0];
+
+  for (var i = 0; i < a.length; i++) {
+    lcmA = lcm(lcmA, a[i]);
+  }
+
+  for (var j = 0; j < b.length; j++) {
+    gcdB = gcd(gcdB, b[j]);
+  }
+
+  let count = 0;
+  let m = 1;
+  let n = 0;
+
+  while (n < gcdB) {
+    n = lcmA * m;
+
+    if (gcdB % n === 0) {
+      count += 1;
+    }
+
+    m += 1;
+  }
+
+  return count;
+}
+
+function lcm(x, y) {
+  let large = Math.max(x, y);
+  let small = Math.min(x, y);
+
+  let i = large;
+  while (i % small !== 0) {
+    i += large;
+  }
+
+  return i;
+}
+
+function gcd(x, y) {
+  if (typeof x !== "number" || typeof y !== "number") return false;
+  x = Math.abs(x);
+  y = Math.abs(y);
+  while (y) {
+    var t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+}
+
+// console.log(getTotalX([2, 4], [16, 32, 96]));
+
+// ============================================================================
