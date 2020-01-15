@@ -1160,3 +1160,18 @@ function gcd(x, y) {
 // console.log(getTotalX([2, 4], [16, 32, 96]));
 
 // ============================================================================
+// Problem: Arrays, Left Rotation
+// Easy
+
+function rotLeft(a, d) {
+  let idx;
+  let newArr = [];
+  for (var i = 0; i < a.length; i++) {
+    idx = (i + (a.length - d)) % a.length;
+    newArr[idx] = a[i];
+  }
+
+  return newArr;
+}
+
+// ============================================================================
