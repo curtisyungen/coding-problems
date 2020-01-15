@@ -1175,3 +1175,27 @@ function rotLeft(a, d) {
 }
 
 // ============================================================================
+// Problem: Funny Strings
+// Easy
+
+function funnyString(s) {
+  let rev = "";
+  for (var i = s.length - 1; i >= 0; i--) {
+    rev += s[i];
+  }
+
+  for (var j = 1; j < s.length; j++) {
+    if (
+      Math.abs(s.charCodeAt(j) - s.charCodeAt(j - 1)) !==
+      Math.abs(rev.charCodeAt(j) - rev.charCodeAt(j - 1))
+    ) {
+      return "Not Funny";
+    }
+  }
+
+  return "Funny";
+}
+
+console.log(funnyString("acxz"));
+
+// ============================================================================
