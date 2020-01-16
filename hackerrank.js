@@ -1196,6 +1196,47 @@ function funnyString(s) {
   return "Funny";
 }
 
-console.log(funnyString("acxz"));
+// ============================================================================
+// Problem: Separate Numbers
+// Easy
+
+function separateNumbers(s) {
+  if (!s || s.length === 1 || s[0] === "0") {
+    console.log("NO");
+    return;
+  }
+
+  // Get starting number with possible of 1-16 digits
+  // Add one to starting number
+
+  let match = false;
+  let start = s[0];
+  let str = start;
+  let next;
+  let digits = 1;
+  let firstNum = 0;
+
+  while (!match && digits <= s.length / 2) {
+    firstNum = start;
+    while (str.length <= s.length) {
+      next = (BigInt(start) + 1n).toString();
+      str += next;
+      start = next;
+    }
+
+    if (str !== s) {
+      digits += 1;
+      start = s.substring(0, digits);
+      str = start;
+    } else {
+      match = true;
+      console.log("YES", firstNum);
+      return;
+    }
+  }
+
+  console.log("NO", firstNum, next);
+  return;
+}
 
 // ============================================================================
