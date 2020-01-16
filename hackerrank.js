@@ -1240,3 +1240,53 @@ function separateNumbers(s) {
 }
 
 // ============================================================================
+// Problem: Weighted Uniform Strings
+// Easy
+
+function weightedUniformStrings(s, queries) {
+  let substrings = {};
+  let str = s[0];
+  for (var i = 1; i <= s.length; i++) {
+    if (s[i] === s[i - 1]) {
+      str += s[i];
+    } else {
+      substrings[str] = getWeight(str);
+      str = s[i];
+    }
+  }
+
+  let results = [];
+  let found = false;
+  for (var j = 0; j < queries.length; j++) {
+    found = false;
+    for (var k in substrings) {
+      if (substrings[k][1] >= queries[j]) {
+        if (queries[j] % substrings[k][0] === 0) {
+          results.push("Yes");
+          found = true;
+          break;
+        }
+      }
+    }
+    if (!found) {
+      results.push("No");
+    }
+  }
+
+  return results;
+}
+
+function getWeight(str) {
+  let wt = 0;
+  let indWt = 0;
+  for (var i in str) {
+    indWt = str.charCodeAt(i) - 96;
+    wt += indWt;
+  }
+
+  return [indWt, wt];
+}
+
+// console.log(weightedUniformStrings("aaabbbbcccddd", [9, 7, 8, 12, 5]));
+
+// ============================================================================
