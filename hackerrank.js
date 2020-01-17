@@ -1290,3 +1290,33 @@ function getWeight(str) {
 // console.log(weightedUniformStrings("aaabbbbcccddd", [9, 7, 8, 12, 5]));
 
 // ============================================================================
+// Problem: Gemstones
+// Easy
+
+function gemstones(arr) {
+  let gems = [];
+
+  // Get letters in first string
+  for (var i = 0; i < arr[0].length; i++) {
+    if (gems.indexOf(arr[0][i]) === -1) {
+      gems.push(arr[0][i]);
+    }
+  }
+
+  // Check subsequent strings for these letters
+  // If not found, remove letter from gems array
+  let newArr;
+  for (var j = 1; j < arr.length; j++) {
+    newArr = Array.from(arr[j]);
+    for (var k = 0; k < gems.length; k++) {
+      if (newArr.indexOf(gems[k]) === -1) {
+        gems.splice(k, 1);
+        k -= 1;
+      }
+    }
+  }
+
+  console.log(gems.length);
+}
+
+// ============================================================================
