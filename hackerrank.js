@@ -1406,3 +1406,44 @@ function theLoveLetterMystery(s) {
 }
 
 // ============================================================================
+// Problem: Closest Numbers
+// Easy
+
+function closestNumbers(arr) {
+  // Sort the array
+  arr.sort(compare);
+
+  // Loop through array and take diff of adjacent numbers
+  // Keep track of lowest diff
+  // Keep track of values in array
+  // Update diff and array if new lowest
+
+  let minDiff = Math.abs(arr[1] - arr[0]);
+  let minNums = new Set();
+  minNums.add(arr[0]).add(arr[1]);
+
+  let currDiff;
+
+  for (var i = 2; i < arr.length; i++) {
+    currDiff = Math.abs(arr[i] - arr[i - 1]);
+
+    if (currDiff < minDiff) {
+      minDiff = currDiff;
+      minNums = new Set();
+      minNums.add(arr[i - 1]).add(arr[i]);
+    } else if (currDiff === minDiff) {
+      minNums.add(arr[i - 1]).add(arr[i]);
+    }
+  }
+
+  return Array.from(minNums);
+}
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  return a > b ? 1 : -1;
+}
+
+// ============================================================================
