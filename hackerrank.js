@@ -1447,3 +1447,30 @@ function compare(a, b) {
 }
 
 // ============================================================================
+// Problem: Anagrams
+// Easy
+
+function anagram(s) {
+  if (s.length % 2 !== 0) {
+    return -1;
+  }
+
+  // Get substrings
+  let str1 = s.substring(0, s.length / 2);
+  let str2 = s.substring(s.length / 2, s.length);
+
+  let arr1 = Array.from(str1);
+  let arr2 = Array.from(str2);
+
+  for (var i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) !== -1) {
+      arr2.splice(arr2.indexOf(arr1[i]), 1);
+      arr1.splice(i, 1);
+      i -= 1;
+    }
+  }
+
+  return Math.abs(arr2.length);
+}
+
+// ============================================================================
