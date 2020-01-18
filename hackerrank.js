@@ -1370,3 +1370,28 @@ function beautifulBinaryString(b) {
 }
 
 // ============================================================================
+// Problem: The Love Letter Mystery
+// Easy
+
+function theLoveLetterMystery(s) {
+  let sArr = Array.from(s);
+  let sRev = sArr.reverse();
+
+  // Check if already palindrome
+  if (sArr === sRev) {
+    return 0;
+  }
+
+  // Identify middle idx of string
+  let midIdx = Math.ceil(s.length / 2);
+  console.log(s[midIdx]);
+
+  // Reverse the string, loop through both and sum up diff between both characters
+}
+
+console.log(theLoveLetterMystery("abc"));
+console.log(theLoveLetterMystery("abcba"));
+console.log(theLoveLetterMystery("abcd"));
+console.log(theLoveLetterMystery("cba"));
+
+// ============================================================================
