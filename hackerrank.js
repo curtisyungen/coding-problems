@@ -1320,3 +1320,33 @@ function gemstones(arr) {
 }
 
 // ============================================================================
+// Problem: Alternating Characters
+// Easy
+
+function alternatingCharacters(s) {
+  // If next char is not equal to curr char, push into new array
+  // Compare lengths of arrays to determine deletions
+
+  if (s.length === 1) {
+    return 0;
+  }
+
+  let sArr = Array.from(s);
+  let char = sArr[0];
+  let newArr = [char];
+
+  for (var i = 1; i < sArr.length; i++) {
+    if (s[i] !== char) {
+      newArr.push(s[i]);
+      char = s[i];
+    }
+  }
+
+  return sArr.length - newArr.length;
+}
+
+console.log(alternatingCharacters("AAAA"));
+console.log(alternatingCharacters("ABABABAB"));
+console.log(alternatingCharacters("AAABBB"));
+
+// ============================================================================
