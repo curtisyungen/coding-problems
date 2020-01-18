@@ -1345,8 +1345,28 @@ function alternatingCharacters(s) {
   return sArr.length - newArr.length;
 }
 
-console.log(alternatingCharacters("AAAA"));
-console.log(alternatingCharacters("ABABABAB"));
-console.log(alternatingCharacters("AAABBB"));
+// ============================================================================
+// Problem: Beautiful Binary String
+// Easy
+
+function beautifulBinaryString(b) {
+  // Change last digit in any 010 combination
+
+  let bArr = Array.from(b);
+  let count = 0;
+
+  if (bArr.length < 3) {
+    return 0;
+  }
+
+  for (var i = 2; i < bArr.length; i++) {
+    if (bArr[i - 2] === "0" && bArr[i - 1] === "1" && bArr[i] === "0") {
+      bArr[i] = 1;
+      count += 1;
+    }
+  }
+
+  return count;
+}
 
 // ============================================================================
