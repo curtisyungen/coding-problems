@@ -1375,23 +1375,34 @@ function beautifulBinaryString(b) {
 
 function theLoveLetterMystery(s) {
   let sArr = Array.from(s);
-  let sRev = sArr.reverse();
+  let sRev = new Array(...s).reverse();
 
   // Check if already palindrome
-  if (sArr === sRev) {
+  let count = 0;
+  for (var i in sArr) {
+    if (sArr[i] === sRev[i]) {
+      count += 1;
+    }
+  }
+
+  if (count === sArr.length) {
     return 0;
   }
 
-  // Identify middle idx of string
-  let midIdx = Math.ceil(s.length / 2);
-  console.log(s[midIdx]);
+  // Loop from start and from end
+  // Sum up diffs between each letter's char code
+  // Stop at middle index
 
-  // Reverse the string, loop through both and sum up diff between both characters
+  let midIdx = s.length % 2 === 0 ? s.length / 2 - 1 : Math.floor(s.length / 2);
+
+  let ops = 0;
+  let k = s.length - 1;
+  for (var j = 0; j <= midIdx; j++) {
+    ops += Math.abs(s.charCodeAt(j) - s.charCodeAt(k));
+    k -= 1;
+  }
+
+  return ops;
 }
-
-console.log(theLoveLetterMystery("abc"));
-console.log(theLoveLetterMystery("abcba"));
-console.log(theLoveLetterMystery("abcd"));
-console.log(theLoveLetterMystery("cba"));
 
 // ============================================================================
