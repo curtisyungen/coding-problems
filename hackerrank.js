@@ -1474,3 +1474,42 @@ function anagram(s) {
 }
 
 // ============================================================================
+// Problem: Palindrome Index
+// Easy
+
+function palindromeIndex(s) {
+  let sArr = Array.from(s);
+  let j = sArr.length - 1;
+  let remIdx = -1;
+  for (var i = 0; i < sArr.length; i++) {
+    if (sArr[i] !== sArr[j]) {
+      sArr.splice(i, 1);
+      if (checkPalindrome(sArr)) {
+        return i;
+      }
+      return j;
+    }
+    j -= 1;
+  }
+
+  return remIdx;
+}
+
+function checkPalindrome(s) {
+  let sArr = Array.from(s);
+  let sRev = new Array(...sArr).reverse();
+
+  for (var i = 0; i < sArr.length; i++) {
+    if (sArr[i] !== sRev[i]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(
+  palindromeIndex("hgygsvlfcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwflvsgygh")
+);
+
+// ============================================================================
