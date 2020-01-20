@@ -1508,8 +1508,32 @@ function checkPalindrome(s) {
   return true;
 }
 
-console.log(
-  palindromeIndex("hgygsvlfcwnswtuhmyaljkqlqjjqlqkjlaymhutwsnwcwflvsgygh")
-);
+// ============================================================================
+// Problem: Game of Thrones 1
+// Easy
+
+function gameOfThrones(s) {
+  let letters = {};
+  for (var i = 0; i < s.length; i++) {
+    if (!letters[s[i]]) {
+      letters[s[i]] = 1;
+    } else {
+      letters[s[i]] += 1;
+    }
+  }
+
+  let numOdd = 0;
+  Object.keys(letters).map(ch => {
+    if (letters[ch] % 2 !== 0) {
+      numOdd += 1;
+    }
+  });
+
+  if (numOdd > 1) {
+    return "NO";
+  }
+
+  return "YES";
+}
 
 // ============================================================================
