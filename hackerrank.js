@@ -1537,3 +1537,24 @@ function gameOfThrones(s) {
 }
 
 // ============================================================================
+// Problem: Ice Cream Parlor
+// Easy
+
+function icecreamParlor(m, arr) {
+  let diff = 0;
+  let newArr;
+  for (var i = 0; i < arr.length; i++) {
+    newArr = new Array(...arr);
+
+    diff = m - newArr[i];
+    newArr.splice(i, 1);
+    if (newArr.indexOf(diff) !== -1) {
+      return [i + 1, newArr.indexOf(diff) + 2];
+    }
+  }
+}
+
+console.log(icecreamParlor(4, [1, 4, 5, 3, 2]));
+console.log(icecreamParlor(4, [2, 2, 4, 3]));
+
+// ============================================================================
