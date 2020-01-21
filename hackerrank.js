@@ -1725,5 +1725,29 @@ function deleteNode(head, position) {
 }
 
 // ============================================================================
+// Problem: Print in Reverse
+// Easy
+
+function reversePrint(head) {
+  if (!head || !head.next) {
+    return;
+  }
+
+  let prev;
+  let next;
+  let currNode = head;
+  while (currNode) {
+    next = currNode.next;
+    currNode.next = prev;
+    prev = currNode;
+    currNode = next;
+  }
+
+  currNode = prev;
+  while (currNode) {
+    console.log(currNode.data);
+    currNode = currNode.next;
+  }
+}
 
 // ============================================================================
