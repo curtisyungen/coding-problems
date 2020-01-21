@@ -1667,12 +1667,37 @@ function printLinkedList(head) {
 
 // ============================================================================
 // Problem: Insert a Node at Head of Linked List
+// Easy
 
 function insertNodeAtHead(head, data) {
   let newHead = new SinglyLinkedListNode();
   newHead.data = data;
   newHead.next = head;
   return newHead;
+}
+
+// ============================================================================
+// Problem: Insert Node At Specific Position in Linked List
+// Easy
+
+function insertNodeAtPosition(head, data, position) {
+  if (!head) {
+    head = new SinglyLinkedListNode();
+    head.data = data;
+  } else {
+    let idx = 0;
+    let currNode = head;
+    while (idx < position - 1) {
+      currNode = currNode.next;
+      idx += 1;
+    }
+    let currNext = currNode.next;
+    let newNode = new SinglyLinkedListNode();
+    newNode.data = data;
+    newNode.next = currNext;
+    currNode.next = newNode;
+  }
+  return head;
 }
 
 // ============================================================================
