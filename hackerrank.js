@@ -1648,8 +1648,4 @@ function balancedSums(arr) {
   return startSum === endSum ? "YES" : "NO";
 }
 
-console.log(balancedSums([1, 1, 4, 1, 1]));
-console.log(balancedSums([2, 0, 0, 0]));
-console.log(balancedSums([0, 0, 2, 0]));
-
 // ============================================================================
