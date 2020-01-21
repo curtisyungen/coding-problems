@@ -1751,24 +1751,19 @@ function reversePrint(head) {
 }
 
 // ============================================================================
-// Problem: Reverse a Linked List
+// Problem: Reverse a Linked List Recursively
 // Easy
 
-function reverse(head) {
-  if (!head || !head.next) {
-    return head;
+function reverse(node) {
+  if (!node || !node.next) {
+    return node;
   }
 
-  let prev = null;
-  let next = null;
-  let curr = head;
-  while (curr) {
-    next = curr.next;
-    curr.next = prev;
-    prev = curr;
-    curr = next;
-  }
+  let head = reverse(node.next);
+  node.next.next = node;
+  node.next = null;
 
-  return prev;
+  return head;
 }
+
 // ============================================================================
