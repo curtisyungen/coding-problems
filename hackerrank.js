@@ -1554,7 +1554,51 @@ function icecreamParlor(m, arr) {
   }
 }
 
-console.log(icecreamParlor(4, [1, 4, 5, 3, 2]));
-console.log(icecreamParlor(4, [2, 2, 4, 3]));
+// ============================================================================
+// Problem: Missing Numbers
+// Easy
+
+function missingNumbers(arr, brr) {
+  // Sum up occurrence of each number in both arrays
+  let arrLets = getLetters(arr);
+  let brrLets = getLetters(brr);
+
+  // Compare both objects and identify differences
+  // Look at both keys and values
+  let diffs = [];
+  Object.keys(brrLets).map(key => {
+    if (!arrLets[key]) {
+      diffs.push(key);
+    } else if (arrLets[key] !== brrLets[key]) {
+      diffs.push(key);
+    }
+  });
+
+  diffs.sort(compare);
+
+  return diffs;
+}
+
+function getLetters(arr) {
+  let obj = {};
+  for (var i in arr) {
+    if (!obj[arr[i]]) {
+      obj[arr[i]] = 1;
+    } else {
+      obj[arr[i]] += 1;
+    }
+  }
+
+  return obj;
+}
+
+function compare(a, b) {
+  aNum = parseInt(a);
+  bNum = parseInt(b);
+  if (aNum === bNum) {
+    return 0;
+  }
+  return aNum > bNum ? 1 : -1;
+}
 
 // ============================================================================
