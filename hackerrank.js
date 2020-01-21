@@ -1602,3 +1602,54 @@ function compare(a, b) {
 }
 
 // ============================================================================
+// Problem: Sherlock and Array
+// Easy
+
+function balancedSums(arr) {
+  // Have two pointers - one at beginning, one at end of array
+  // Sum from beginning and end of array
+  // Increment the smaller sum each time
+  // If sums are equal, increment both
+  // Stop when indicies are the same
+
+  // If there is only one non-zero number, return yes
+  let nonZero = 0;
+  for (var i in arr) {
+    if (arr[i] > 0) {
+      nonZero += 1;
+    }
+  }
+
+  if (nonZero === 1) {
+    return "YES";
+  }
+
+  let startIdx = 1;
+  let endIdx = arr.length - 2;
+
+  let startSum = arr[0];
+  let endSum = arr[arr.length - 1];
+
+  while (startIdx <= endIdx - 1) {
+    if (startSum === endSum) {
+      startSum += arr[startIdx];
+      endSum += arr[endIdx];
+      startIdx += 1;
+      endIdx -= 1;
+    } else if (startSum > endSum) {
+      endSum += arr[endIdx];
+      endIdx -= 1;
+    } else if (startSum < endSum) {
+      startSum += arr[startIdx];
+      startIdx += 1;
+    }
+  }
+
+  return startSum === endSum ? "YES" : "NO";
+}
+
+console.log(balancedSums([1, 1, 4, 1, 1]));
+console.log(balancedSums([2, 0, 0, 0]));
+console.log(balancedSums([0, 0, 2, 0]));
+
+// ============================================================================
