@@ -1666,3 +1666,13 @@ function printLinkedList(head) {
 }
 
 // ============================================================================
+// Problem: Insert a Node at Head of Linked List
+
+function insertNodeAtHead(head, data) {
+  let newHead = new SinglyLinkedListNode();
+  newHead.data = data;
+  newHead.next = head;
+  return newHead;
+}
+
+// ============================================================================
