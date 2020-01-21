@@ -1649,3 +1649,20 @@ function balancedSums(arr) {
 }
 
 // ============================================================================
+// Problem: Print the Elements of a Linked List
+// Easy
+
+function printLinkedList(head) {
+  if (!head) {
+    return;
+  }
+
+  while (head.next) {
+    console.log(head.data);
+    head = head.next;
+  }
+
+  console.log(head.data);
+}
+
+// ============================================================================
