@@ -1701,3 +1701,29 @@ function insertNodeAtPosition(head, data, position) {
 }
 
 // ============================================================================
+// Problem: Delete a Node in a Linked List
+// Easy
+
+function deleteNode(head, position) {
+  if (!head || !head.next) {
+    return;
+  }
+
+  if (position === 0) {
+    head = head.next;
+    return head;
+  }
+
+  let idx = 0;
+  let currNode = head;
+  while (idx < position - 1) {
+    currNode = currNode.next;
+    idx += 1;
+  }
+  currNode.next = currNode.next.next;
+  return head;
+}
+
+// ============================================================================
+
+// ============================================================================
