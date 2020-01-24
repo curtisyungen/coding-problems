@@ -1818,3 +1818,31 @@ function insertNodeAtTail(head, data) {
 }
 
 // ============================================================================
+// Problem: Compare Two Linked Lists
+// Easy
+
+function CompareLists(llist1, llist2) {
+  let curr1 = llist1;
+  let curr2 = llist2;
+
+  if (!curr1 && !curr2) {
+    return 1;
+  } else if (!curr1 || !curr2) {
+    return 0;
+  }
+
+  while (curr1 && curr2) {
+    if (curr1.data !== curr2.data) {
+      return 0;
+    }
+    curr1 = curr1.next;
+    curr2 = curr2.next;
+  }
+
+  if (curr1 === curr2) {
+    return 1;
+  }
+  return 0;
+}
+
+// ============================================================================
