@@ -1796,3 +1796,25 @@ function arrayManipulation(n, queries) {
 }
 
 // ============================================================================
+// Problem: Insert Node at the Tail of Linked List
+// Easy
+
+function insertNodeAtTail(head, data) {
+  let node = new SinglyLinkedListNode();
+  node.data = data;
+  node.next = null;
+
+  if (!head) {
+    return node;
+  }
+
+  let curr = head;
+  while (curr.next) {
+    curr = curr.next;
+  }
+  curr.next = node;
+
+  return head;
+}
+
+// ============================================================================
