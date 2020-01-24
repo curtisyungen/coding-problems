@@ -1767,3 +1767,32 @@ function reverse(node) {
 }
 
 // ============================================================================
+// Problem: Array Manipulation
+// Hard
+
+function arrayManipulation(n, queries) {
+  let arr = new Array();
+  for (var i = 0; i <= n + 1; i++) {
+    arr[i] = 0;
+  }
+
+  let startIdx, endIdx, value;
+  for (var j = 0; j < queries.length; j++) {
+    startIdx = queries[j][0];
+    endIdx = queries[j][1];
+    value = queries[j][2];
+    arr[startIdx] += value;
+    arr[endIdx + 1] -= value;
+  }
+
+  let max = 0;
+  let sum = 0;
+  for (var k = 0; k < arr.length; k++) {
+    sum += arr[k];
+    max = Math.max(max, sum);
+  }
+
+  return max;
+}
+
+// ============================================================================
