@@ -1941,3 +1941,36 @@ function hourglassSum(arr) {
 }
 
 // ============================================================================
+// Problem: Dynamic Array
+// Easy
+
+function dynamicArray(n, queries) {
+  let seqList = [];
+
+  for (var i = 0; i < n; i++) {
+    seqList.push([]);
+  }
+
+  let lastAnswer = 0;
+  let seqAtIdx;
+  let size;
+  let query;
+  let answers = [];
+
+  for (var j = 0; j < queries.length; j++) {
+    seqAtIdx = (queries[j][1] ^ lastAnswer) % n;
+    size = seqList[seqAtIdx].length;
+
+    query = queries[j][0];
+    if (query === 1) {
+      seqList[seqAtIdx].push(queries[j][2]);
+    } else if (query === 2) {
+      lastAnswer = seqList[seqAtIdx][queries[j][2] % size];
+      answers.push(lastAnswer);
+    }
+  }
+
+  return answers;
+}
+
+// ============================================================================
