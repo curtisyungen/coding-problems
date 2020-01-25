@@ -1916,3 +1916,28 @@ function removeDuplicates(head) {
 }
 
 // ============================================================================
+// Problem: 2D Array
+// Easy
+
+function hourglassSum(arr) {
+  let max = -999;
+  let sum;
+  let top;
+  let mid;
+  let bot;
+
+  for (var i = 0; i <= 3; i++) {
+    for (var j = 0; j <= 3; j++) {
+      top = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
+      mid = arr[i + 1][j + 1];
+      bot = arr[i + 2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2];
+
+      sum = top + mid + bot;
+      max = Math.max(max, sum);
+    }
+  }
+
+  return max;
+}
+
+// ============================================================================
