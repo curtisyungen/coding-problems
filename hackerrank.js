@@ -1974,3 +1974,19 @@ function dynamicArray(n, queries) {
 }
 
 // ============================================================================
+// Problem: Left Rotation
+// Easy
+
+function goLeft(arr, d) {
+  d = d % arr.length;
+  let newArr = new Array(...arr);
+  let idx = 0;
+  for (var i = 0; i < arr.length; i++) {
+    idx = (i + (arr.length - d)) % arr.length;
+    newArr[idx] = arr[i];
+  }
+
+  console.log(...newArr);
+}
+
+// ============================================================================
