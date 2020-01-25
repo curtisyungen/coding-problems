@@ -1892,3 +1892,27 @@ function getNode(head, positionFromTail) {
 }
 
 // ============================================================================
+// Problem: Delete Duplicate-Value Nodes from List
+// Easy
+
+function removeDuplicates(head) {
+  if (!head || !head.next) {
+    return head;
+  }
+
+  let prev = new SinglyLinkedListNode();
+  let curr = head;
+
+  while (curr) {
+    prev.next = null;
+    if (curr.data !== prev.data) {
+      prev.next = curr;
+      prev = curr;
+    }
+    curr = curr.next;
+  }
+
+  return head;
+}
+
+// ============================================================================
