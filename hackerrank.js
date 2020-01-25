@@ -1872,3 +1872,23 @@ function mergeLists(head1, head2) {
 }
 
 // ============================================================================
+// Problem: Get Node Value
+// Easy
+
+function getNode(head, positionFromTail) {
+  let curr = head;
+  let res = head;
+  let currIdx = 0;
+
+  while (curr) {
+    curr = curr.next;
+    currIdx += 1;
+    if (currIdx - 1 > positionFromTail) {
+      res = res.next;
+    }
+  }
+
+  return res.data;
+}
+
+// ============================================================================
