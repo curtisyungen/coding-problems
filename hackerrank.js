@@ -1979,14 +1979,41 @@ function dynamicArray(n, queries) {
 
 function goLeft(arr, d) {
   d = d % arr.length;
-  let newArr = new Array(...arr);
-  let idx = 0;
-  for (var i = 0; i < arr.length; i++) {
-    idx = (i + (arr.length - d)) % arr.length;
-    newArr[idx] = arr[i];
+  let newArr = [];
+  for (var i = d; i < arr.length; i++) {
+    newArr.push(arr[i]);
+  }
+
+  for (var j = 0; j < d; j++) {
+    newArr.push(arr[j]);
   }
 
   console.log(...newArr);
+}
+
+// ============================================================================
+// Problem: Find Merge Point of Two Lists
+// Easy
+
+function findMergeNode(headA, headB) {
+  let currA = headA;
+  let currB = headB;
+
+  while (currA !== currB) {
+    if (!currA.next) {
+      currA = headB;
+    } else {
+      currA = currA.next;
+    }
+
+    if (!currB.next) {
+      currB = headA;
+    } else {
+      currB = currB.next;
+    }
+  }
+
+  return currB.data;
 }
 
 // ============================================================================
