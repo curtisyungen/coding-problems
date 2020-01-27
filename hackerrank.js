@@ -2058,3 +2058,42 @@ function matchingStrings(strings, queries) {
 }
 
 // ============================================================================
+// Problem: Insert Node into Doubly Linked List
+// Easy
+
+function sortedInsert(head, data) {
+  let prev = null;
+  let next = null;
+  let curr = head;
+
+  let node = new DoublyLinkedListNode();
+  node.data = data;
+
+  if (!head) {
+    return node;
+  }
+
+  while (curr) {
+    if (node.data < head.data) {
+      head.prev = node;
+      node.next = head;
+      node.prev = null;
+      return node;
+    } else if (node.data < curr.data) {
+      node.prev = curr.prev;
+      node.next = curr;
+      curr.prev.next = node;
+      curr.prev = node;
+      return head;
+    } else if (!curr.next) {
+      node.prev = curr;
+      node.next = null;
+      curr.next = node;
+      return head;
+    }
+
+    curr = curr.next;
+  }
+}
+
+// ============================================================================
