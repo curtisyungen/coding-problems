@@ -2032,3 +2032,29 @@ function reverse(head) {
 }
 
 // ============================================================================
+// Problem: Sparse Arrays
+// Medium
+
+function matchingStrings(strings, queries) {
+  let strs = {};
+  for (var s in strings) {
+    if (!strs[strings[s]]) {
+      strs[strings[s]] = 1;
+    } else {
+      strs[strings[s]] += 1;
+    }
+  }
+
+  let results = [];
+  for (var q in queries) {
+    if (strs[queries[q]]) {
+      results.push(strs[queries[q]]);
+    } else {
+      results.push(0);
+    }
+  }
+
+  return results;
+}
+
+// ============================================================================
