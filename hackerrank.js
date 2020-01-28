@@ -63,32 +63,32 @@ function hurdleRace(k, height) {
 
 function designerPdfViewer(h, word) {
   let letters = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z"
   ];
 
   if (word.length === 0) return 0;
@@ -132,7 +132,7 @@ function angryProfessor(k, a) {
     }
   }
 
-  return a.length - late >= k ? 'NO' : 'YES';
+  return a.length - late >= k ? "NO" : "YES";
 }
 
 // ============================================================================
@@ -292,13 +292,13 @@ function appendAndDelete(s, t, k) {
   }
 
   if (s.length + t.length - 2 * commonLength > k) {
-    return 'No';
+    return "No";
   } else if ((s.length + t.length - 2 * commonLength) % 2 === k % 2) {
-    return 'Yes';
+    return "Yes";
   } else if (s.length + t.length - k < 0) {
-    return 'Yes';
+    return "Yes";
   } else {
-    return 'No';
+    return "No";
   }
 }
 
@@ -377,7 +377,7 @@ function repeatedString(s, n) {
 
   let numAs = 0;
   for (var i in s) {
-    if (s[i] === 'a') {
+    if (s[i] === "a") {
       numAs += 1;
     }
   }
@@ -386,7 +386,7 @@ function repeatedString(s, n) {
 
   let remainder = n % s.length;
   for (var j = 0; j < remainder; j++) {
-    if (s[j] === 'a') {
+    if (s[j] === "a") {
       total += 1;
     }
   }
@@ -458,7 +458,7 @@ function acmTeam(topic) {
 
       length = 0;
       for (var j in firstStr) {
-        if (firstStr[j] === '1' || secondStr[j] === '1') {
+        if (firstStr[j] === "1" || secondStr[j] === "1") {
           length += 1;
         }
 
@@ -674,9 +674,9 @@ function superReducedString(s) {
   }
 
   if (arr.length === 0 || arr.length === 2) {
-    return 'Empty String';
+    return "Empty String";
   } else {
-    return arr.join('');
+    return arr.join("");
   }
 }
 
@@ -705,7 +705,7 @@ function fairRations(B) {
     }
   }
 
-  return lastId !== -1 ? 'NO' : count;
+  return lastId !== -1 ? "NO" : count;
 }
 
 // console.log(fairRations([2, 3, 5, 5, 6, 7]));
@@ -723,8 +723,13 @@ function cavityMap(grid) {
       let nextCol = grid[r][c + 1];
       let currVal = grid[r][c];
 
-      if (currVal > prevRow && currVal > nextRow && currVal > prevCol && currVal > nextCol) {
-        grid[r] = replaceAt(grid[r], c, 'X');
+      if (
+        currVal > prevRow &&
+        currVal > nextRow &&
+        currVal > prevCol &&
+        currVal > nextCol
+      ) {
+        grid[r] = replaceAt(grid[r], c, "X");
       }
     }
   }
@@ -782,25 +787,25 @@ function happyLadybugs(b) {
 
   // If there are no bugs
   if (Object.keys(bugs).length === 0) {
-    return 'YES';
+    return "YES";
   }
 
   // Check if there is one of any letter
   let noMatch = false;
   Object.keys(bugs).map(bug => {
-    if (bugs[bug] === 1 && bug !== '_') {
+    if (bugs[bug] === 1 && bug !== "_") {
       noMatch = true;
     }
   });
 
   if (noMatch) {
-    return 'NO';
+    return "NO";
   }
 
   // Check if there are no blanks
   let noBlanks = true;
   Object.keys(bugs).map(bug => {
-    if (bug === '_') {
+    if (bug === "_") {
       noBlanks = false;
     }
   });
@@ -816,10 +821,10 @@ function happyLadybugs(b) {
   }
 
   if (noBlanks && !isHappy) {
-    return 'NO';
+    return "NO";
   }
 
-  return 'YES';
+  return "YES";
 }
 
 // console.log(happyLadybugs("RBY_YBR"));
@@ -877,7 +882,7 @@ function kaprekarNumbers(p, q) {
   }
 
   if (nums.length === 0) {
-    return 'INVALID RANGE';
+    return "INVALID RANGE";
   }
 
   return nums;
@@ -971,12 +976,12 @@ function alternate(s) {
   let letSet = new Set(s);
   let letArr = Array.from(letSet);
 
-  let maxStr = '';
+  let maxStr = "";
   let maxLength = 0;
 
   for (var j = 0; j < letArr.length - 1; j++) {
     for (var k = j + 1; k < letArr.length; k++) {
-      maxStr = '';
+      maxStr = "";
       for (var m = 0; m < s.length; m++) {
         if (s[m] === letArr[j] || s[m] === letArr[k]) {
           maxStr += s[m];
@@ -1007,8 +1012,8 @@ function validateString(str) {
 // Easy
 
 function caesarCipher(s, k) {
-  let newStr = '';
-  let newCode = '';
+  let newStr = "";
+  let newCode = "";
   for (var i in s) {
     if (s.charCodeAt(i) >= 65 && s.charCodeAt(i) <= 90) {
       newCode = s.charCodeAt(i) + (k % 26);
@@ -1040,13 +1045,13 @@ function marsExploration(s) {
   let diffs = 0;
 
   for (var j = 0; j < s.length; j += 3) {
-    if (s[j] !== 'S') {
+    if (s[j] !== "S") {
       diffs += 1;
     }
-    if (s[j + 1] !== 'O') {
+    if (s[j + 1] !== "O") {
       diffs += 1;
     }
-    if (s[j + 2] !== 'S') {
+    if (s[j + 2] !== "S") {
       diffs += 1;
     }
   }
@@ -1061,7 +1066,7 @@ function marsExploration(s) {
 // Easy
 
 function hackerrankInString(s) {
-  let hackerrank = Array.from('hackerrank');
+  let hackerrank = Array.from("hackerrank");
   let letter = 0;
   for (var i in s) {
     if (s[i] === hackerrank[letter]) {
@@ -1070,10 +1075,10 @@ function hackerrankInString(s) {
   }
 
   if (letter === 10) {
-    return 'YES';
+    return "YES";
   }
 
-  return 'NO';
+  return "NO";
 }
 
 // ============================================================================
@@ -1083,16 +1088,16 @@ function hackerrankInString(s) {
 function pangrams(s) {
   let letters = new Set();
   for (var i in s) {
-    if (s[i] !== ' ') {
+    if (s[i] !== " ") {
       letters.add(s[i].toLowerCase());
     }
   }
 
   if (letters.size === 26) {
-    return 'pangram';
+    return "pangram";
   }
 
-  return 'not pangram';
+  return "not pangram";
 }
 
 // ============================================================================
@@ -1141,7 +1146,7 @@ function lcm(x, y) {
 }
 
 function gcd(x, y) {
-  if (typeof x !== 'number' || typeof y !== 'number') return false;
+  if (typeof x !== "number" || typeof y !== "number") return false;
   x = Math.abs(x);
   y = Math.abs(y);
   while (y) {
@@ -1174,7 +1179,7 @@ function rotLeft(a, d) {
 // Easy
 
 function funnyString(s) {
-  let rev = '';
+  let rev = "";
   for (var i = s.length - 1; i >= 0; i--) {
     rev += s[i];
   }
@@ -1184,11 +1189,11 @@ function funnyString(s) {
       Math.abs(s.charCodeAt(j) - s.charCodeAt(j - 1)) !==
       Math.abs(rev.charCodeAt(j) - rev.charCodeAt(j - 1))
     ) {
-      return 'Not Funny';
+      return "Not Funny";
     }
   }
 
-  return 'Funny';
+  return "Funny";
 }
 
 // ============================================================================
@@ -1196,8 +1201,8 @@ function funnyString(s) {
 // Easy
 
 function separateNumbers(s) {
-  if (!s || s.length === 1 || s[0] === '0') {
-    console.log('NO');
+  if (!s || s.length === 1 || s[0] === "0") {
+    console.log("NO");
     return;
   }
 
@@ -1225,12 +1230,12 @@ function separateNumbers(s) {
       str = start;
     } else {
       match = true;
-      console.log('YES', firstNum);
+      console.log("YES", firstNum);
       return;
     }
   }
 
-  console.log('NO', firstNum, next);
+  console.log("NO", firstNum, next);
   return;
 }
 
@@ -1257,14 +1262,14 @@ function weightedUniformStrings(s, queries) {
     for (var k in substrings) {
       if (substrings[k][1] >= queries[j]) {
         if (queries[j] % substrings[k][0] === 0) {
-          results.push('Yes');
+          results.push("Yes");
           found = true;
           break;
         }
       }
     }
     if (!found) {
-      results.push('No');
+      results.push("No");
     }
   }
 
@@ -1355,7 +1360,7 @@ function beautifulBinaryString(b) {
   }
 
   for (var i = 2; i < bArr.length; i++) {
-    if (bArr[i - 2] === '0' && bArr[i - 1] === '1' && bArr[i] === '0') {
+    if (bArr[i - 2] === "0" && bArr[i - 1] === "1" && bArr[i] === "0") {
       bArr[i] = 1;
       count += 1;
     }
@@ -1525,10 +1530,10 @@ function gameOfThrones(s) {
   });
 
   if (numOdd > 1) {
-    return 'NO';
+    return "NO";
   }
 
-  return 'YES';
+  return "YES";
 }
 
 // ============================================================================
@@ -1616,7 +1621,7 @@ function balancedSums(arr) {
   }
 
   if (nonZero === 1) {
-    return 'YES';
+    return "YES";
   }
 
   let startIdx = 1;
@@ -1640,7 +1645,7 @@ function balancedSums(arr) {
     }
   }
 
-  return startSum === endSum ? 'YES' : 'NO';
+  return startSum === endSum ? "YES" : "NO";
 }
 
 // ============================================================================
@@ -2095,5 +2100,50 @@ function sortedInsert(head, data) {
     curr = curr.next;
   }
 }
+
+// ============================================================================
+// Problem: Equal Stacks
+// Easy
+
+function equalStacks(h1, h2, h3) {
+  let sum1 = getSum(h1);
+  let sum2 = getSum(h2);
+  let sum3 = getSum(h3);
+
+  let maxStack;
+
+  if (sum1 === sum2 && sum2 === sum3) {
+    return sum1;
+  }
+
+  while (sum1 > 0 && sum2 > 0 && sum3 > 0) {
+    maxStack = Math.max(sum1, sum2, sum3);
+
+    if (maxStack === sum1) {
+      sum1 -= h1[0];
+      h1.shift();
+    } else if (maxStack === sum2) {
+      sum2 -= h2[0];
+      h2.shift();
+    } else if (maxStack === sum3) {
+      sum3 -= h3[0];
+      h3.shift();
+    }
+
+    if (sum1 === sum2 && sum2 === sum3) {
+      return sum1;
+    }
+  }
+
+  return 0;
+}
+
+function getSum(arr) {
+  return arr.reduce(function(a, b) {
+    return a + b;
+  }, 0);
+}
+
+console.log(equalStacks([1, 1, 1, 1, 1], [3, 2], [1, 3, 1]));
 
 // ============================================================================
