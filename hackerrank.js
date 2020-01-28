@@ -2147,3 +2147,50 @@ function getSum(arr) {
 console.log(equalStacks([1, 1, 1, 1, 1], [3, 2], [1, 3, 1]));
 
 // ============================================================================
+// Problem: Maximum Element
+// Easy
+
+class StackNode {
+  constructor(value, currMax) {
+    this.value = value;
+    this.currMax = currMax;
+  }
+}
+
+function processData(input) {
+  let splitInput = input.split("\n");
+  let numQueries = Number(splitInput[0]);
+  let currMax = 0;
+
+  let stack = [];
+  for (var i = 1; i <= numQueries; i++) {
+    let query = splitInput[i];
+    let type = Number(query.split(" ")[0]);
+    let x = Number(query.split(" ")[1]);
+
+    switch (type) {
+      case 1:
+        currMax = Math.max(x, currMax);
+        stack.push(new StackNode(x, currMax));
+        break;
+
+      case 2:
+        stack.pop();
+        if (stack.length === 0) {
+          currMax = 0;
+        } else {
+          currMax = stack[stack.length - 1].currMax;
+        }
+        break;
+
+      case 3:
+        console.log(stack[stack.length - 1].currMax);
+        break;
+
+      default:
+        console.log("");
+    }
+  }
+}
+
+// ============================================================================
