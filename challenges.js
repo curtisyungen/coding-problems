@@ -57,15 +57,15 @@ function solution2(s) {
 // Problem: find earliest substring in alphabet that can be obtained by removing one character
 
 function solution3(s) {
-  for (var i = 0; i < s.length; i++) {
-    let currVal = s.charCodeAt(i);
-    let prevVal = i - 1 >= 0 ? s.charCodeAt(i - 1) : -1;
-    let nextVal = i + 1 <= s.length ? s.charCodeAt(i + 1) : -1;
-    
-    if (currVal > prevVal && currVal > nextVal) {
-      return s.substring(0, i).concat(s.substring(i + 1, s.length));
+    for (var i = 0; i < s.length; i++) {
+        let currVal = s.charCodeAt(i);
+        let prevVal = i - 1 >= 0 ? s.charCodeAt(i - 1) : -1;
+        let nextVal = i + 1 < s.length ? s.charCodeAt(i + 1) : -1;
+
+        if (currVal > prevVal && currVal >= nextVal) {
+            return s.substring(0, i).concat(s.substring(i + 1, s.length));
+        }
     }
-  }
 }
 
 // console.log(solution3("acb"));
