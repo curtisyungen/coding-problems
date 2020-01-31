@@ -2144,7 +2144,7 @@ function getSum(arr) {
   }, 0);
 }
 
-console.log(equalStacks([1, 1, 1, 1, 1], [3, 2], [1, 3, 1]));
+// console.log(equalStacks([1, 1, 1, 1, 1], [3, 2], [1, 3, 1]));
 
 // ============================================================================
 // Problem: Maximum Element
@@ -2192,5 +2192,34 @@ function processData(input) {
     }
   }
 }
+
+// ============================================================================
+// Problem: Is Balanced
+// Medium
+
+function isBalanced(s) {
+  let brackets = [];
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === "(") {
+      brackets.push(")");
+    } else if (s[i] === "[") {
+      brackets.push("]");
+    } else if (s[i] === "{") {
+      brackets.push("}");
+    } else {
+      if (s[i] !== brackets.pop()) {
+        return "NO";
+      }
+    }
+  }
+
+  if (brackets.length > 0) {
+    return "NO";
+  }
+
+  return "YES";
+}
+
+// ============================================================================
 
 // ============================================================================
