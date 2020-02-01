@@ -2288,3 +2288,33 @@ function largestRectangle(h) {
 }
 
 // ============================================================================
+// Problem: Text Editor
+// Medium
+
+function processData(input) {
+  let inputLines = input.split("\n");
+  let stack = [""];
+  let str = "";
+  let query;
+  let data;
+
+  for (var i = 1; i < inputLines.length; i++) {
+    query = Number(inputLines[i].split(" ")[0]);
+    data = inputLines[i].split(" ")[1];
+
+    if (query === 1) {
+      str += data;
+      stack.push(str);
+    } else if (query === 2) {
+      str = str.substring(0, str.length - k);
+      stack.push(str);
+    } else if (query === 3) {
+      console.log(str.charAt(k - 1));
+    } else if (query === 4) {
+      stack.pop();
+      str = stack[stack.length - 1];
+    }
+  }
+}
+
+// ============================================================================
