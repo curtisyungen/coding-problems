@@ -2255,3 +2255,36 @@ function twoStacks(x, a, b) {
 // console.log(twoStacks(10, [4, 2, 4, 6, 1], [2, 1, 8, 5]));
 
 // ============================================================================
+// Problem: Largest Rectangle
+// Medium
+
+function largestRectangle(h) {
+  // Start at curr idx, count backwards and forwards until find something smaller
+
+  let maxArea = 0;
+  let idx1;
+  let idx2;
+  let width;
+
+  for (var i = 0; i < h.length; i++) {
+    width = 0;
+    idx1 = i - 1;
+    idx2 = i;
+
+    while (h[idx1] >= h[i] && idx1 >= 0) {
+      width += 1;
+      idx1 -= 1;
+    }
+
+    while (h[idx2] >= h[i] && idx2 < h.length) {
+      width += 1;
+      idx2 += 1;
+    }
+
+    maxArea = Math.max(maxArea, width * h[i]);
+  }
+
+  return maxArea;
+}
+
+// ============================================================================
