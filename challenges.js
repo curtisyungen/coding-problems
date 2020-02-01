@@ -1,4 +1,5 @@
 // Problem: find most frequent char in string; if multiple, return earliest in alphabet
+// Microsoft Skills Assessment, 1/29/2020
 
 function solution1(S) {
   var occurrences = new Array(26);
@@ -27,6 +28,7 @@ function solution1(S) {
 
 // ============================================================================
 // Problem: find longest substring not containing 'aaa' or 'bbb'
+// Microsoft Skills Assessment, 1/29/2020
 
 function solution2(s) {
   if (s.indexOf("aaa") === -1 && s.indexOf("bbb") === -1) {
@@ -55,20 +57,60 @@ function solution2(s) {
 
 // ============================================================================
 // Problem: find earliest substring in alphabet that can be obtained by removing one character
+// Microsoft Skills Assessment, 1/29/2020
 
 function solution3(s) {
-    for (var i = 0; i < s.length; i++) {
-        let currVal = s.charCodeAt(i);
-        let prevVal = i - 1 >= 0 ? s.charCodeAt(i - 1) : -1;
-        let nextVal = i + 1 < s.length ? s.charCodeAt(i + 1) : -1;
+  for (var i = 0; i < s.length; i++) {
+    let currVal = s.charCodeAt(i);
+    let prevVal = i - 1 >= 0 ? s.charCodeAt(i - 1) : -1;
+    let nextVal = i + 1 < s.length ? s.charCodeAt(i + 1) : -1;
 
-        if (currVal > prevVal && currVal >= nextVal) {
-            return s.substring(0, i).concat(s.substring(i + 1, s.length));
-        }
+    if (currVal > prevVal && currVal >= nextVal) {
+      return s.substring(0, i).concat(s.substring(i + 1, s.length));
     }
+  }
 }
 
 // console.log(solution3("acb"));
 // console.log(solution3("hot"));
 // console.log(solution3("codility"));
 // console.log(solution3("aaaa"));
+
+// ============================================================================
+// Problem: Merge Arrays
+// Microsoft Interview, SE II, 1/31/2020
+
+function merge(a, b) {
+  let endB;
+  for (var i = 0; i < b.length; i++) {
+    if (b[i] === null) {
+      endB = i - 1;
+      break;
+    }
+  }
+
+  let aIdx = a.length - 1;
+  let bCount = 1;
+
+  for (var j = endB; j >= 0; j--) {
+    if (b[j] >= a[aIdx]) {
+      b[b.length - bCount] = b[j];
+      bCount += 1;
+      b[j] = null;
+    } else if (b[j] < a[aIdx]) {
+      b[b.length - bCount] = a[aIdx];
+      bCount += 1;
+      aIdx -= 1;
+      j += 1;
+    }
+  }
+
+  if (aIdx > 0) {
+    for (var k = aIdx; k >= 0; k--) {
+      b[b.length - bCount] = a[k];
+      bCount += 1;
+    }
+  }
+
+  return b;
+}
