@@ -114,3 +114,7 @@ function merge(a, b) {
 
   return b;
 }
+
+console.log(
+  merge([4, 5, 6, 7, 8], [1, 2, 6, 8, 10, null, null, null, null, null])
+);

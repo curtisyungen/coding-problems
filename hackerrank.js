@@ -2224,8 +2224,34 @@ function isBalanced(s) {
 // Problem: Game of Two Stacks
 // Medium
 
-function twoStacks(x, a, b) {}
+function twoStacks(x, a, b) {
+  let sum = 0;
+  let count = 0;
+  let i = 0;
+  let j = 0;
 
-console.log(twoStacks(10, [4, 2, 4, 6, 1], [2, 1, 8, 5]));
+  while (sum + a[i] <= x && i < a.length) {
+    sum += a[i];
+    i += 1;
+  }
+  count = i;
+
+  while (j < b.length && i >= 0) {
+    sum += b[j];
+    j += 1;
+
+    while (sum > x && i > 0) {
+      i -= 1;
+      sum -= a[i];
+    }
+    if (sum <= x && i + j > count) {
+      count = i + j;
+    }
+  }
+
+  return count;
+}
+
+// console.log(twoStacks(10, [4, 2, 4, 6, 1], [2, 1, 8, 5]));
 
 // ============================================================================
