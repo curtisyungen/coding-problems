@@ -118,3 +118,81 @@ function merge(a, b) {
 console.log(
   merge([4, 5, 6, 7, 8], [1, 2, 6, 8, 10, null, null, null, null, null])
 );
+
+// ============================================================================
+// Problem: Fun with Anagrams
+// Bungee Skills Test, Web Developer, 02/05/2020
+
+function funWithAnagrams(text) {
+  let result = [];
+
+  if (text.length === 1) {
+    return text;
+  }
+
+  let wordArr;
+  let sortedWord;
+  let words = [];
+
+  for (var i = 0; i < text.length; i++) {
+    wordArr = Array.from(text[i]);
+    wordArr.sort(compare);
+
+    sortedWord = "";
+
+    for (var j = 0; j < wordArr.length; j++) {
+      sortedWord += wordArr[j];
+    }
+
+    if (words.indexOf(sortedWord) === -1) {
+      result.push(text[i]);
+      words.push(sortedWord);
+    }
+  }
+
+  // Sort the array, lowest to highest
+  result.sort(compare);
+
+  return result;
+}
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  return a > b ? 1 : -1;
+}
+
+// ============================================================================
+// Problem: Min Sum
+// Bungee Skills Test, Web Developer, 02/05/2020
+
+function minSum(num, k) {
+  num.sort(compare);
+
+  let sum = 0;
+
+  if (k > 0) {
+    num[0] = Math.ceil(num[0] / 2);
+    sum = minSum(num, k - 1);
+  } else {
+    for (var i = 0; i < num.length; i++) {
+      sum += num[i];
+    }
+  }
+
+  return sum;
+}
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  return a < b ? 1 : -1;
+}
+
+// console.log(minSum([10, 20, 7], 4));
+// console.log(minSum([2, 2, 3], 1));
+// console.log(minSum([2, 3, 1], 2));
+
+// ============================================================================
