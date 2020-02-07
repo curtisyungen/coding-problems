@@ -2340,3 +2340,27 @@ function minimumSwaps(arr) {
 }
 
 // ============================================================================
+// Problem: New Year Chaos
+// Medium
+
+function minimumBribes(q) {
+    let bribes = 0;
+
+    for (var i=0; i<q.length - 1; i++) {
+
+        if (q[i] - (i + 1) > 2) {
+            console.log("Too chaotic");
+            return;
+        }
+
+        for (var j=i + 1; j<q.length; j++) {
+            if (q[j] < q[i]) {
+                bribes += 1;
+            }
+        }
+    }
+
+    console.log(bribes);
+}
+
+// ============================================================================
