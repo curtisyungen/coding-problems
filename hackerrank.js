@@ -2318,3 +2318,35 @@ function processData(input) {
 }
 
 // ============================================================================
+// Problem: Minimum Swaps 2
+// Medium
+
+function minimumSwaps(arr) {
+    let count = 0;
+    let temp;
+    let tempIdx;
+    while (!checkSort(arr)) {
+        for (var i=0; i<arr.length; i++) {
+            if (arr[i] !== i + 1) {
+                temp = arr[i];
+                tempIdx = arr.indexOf(i + 1);
+                arr[i] = arr[tempIdx];
+                arr[tempIdx] = temp;
+                break;
+            }
+        }
+        count += 1;
+    }
+    return count;
+}
+
+function checkSort(arr) {
+    for (var i=0; i<arr.length - 1; i++) {
+        if (arr[i + 1] !== arr[i] + 1) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// ============================================================================
