@@ -2402,4 +2402,31 @@ function getObj(arr) {
     }
     return obj;
 }
+
+// ============================================================================
+// Problem: Sherlock and the Valid String
+// Easy
+
+function isValid(s) {
+    let chars = {};
+    for (var i=0; i<s.length; i++) {
+        if (!chars[s[i]])  {
+            chars[s[i]] = 1;
+        }
+        else {
+            chars[s[i]] += 1;
+        }
+    }
+
+    let occ = chars[s[0]];
+    let rems = 0;
+    Object.keys(chars).map(ch => {
+        if (chars[ch] !== occ) {
+            rems += 1;
+        }
+    });
+
+    return rems <= 1 ? "YES" : "NO";
+}
+
 // ============================================================================
