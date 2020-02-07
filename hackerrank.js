@@ -2430,3 +2430,33 @@ function isValid(s) {
 }
 
 // ============================================================================
+// Problem: Special String Again
+// Medium
+
+function substrCount(n, s) {
+    if (n === 1) {
+        return 1;
+    }
+
+    let count = s.length;
+    let str;
+
+    for (var i=0; i<s.length - 1; i++) {
+        str = s[i];
+        for (var j=i + 1; j<s.length; j++) {
+            if (s[j] === s[i]) {
+                count += 1;
+                str += s[j];
+            }
+            else {
+                if (s.substring(j + 1, j + 1 + str.length) === str) {
+                    count += 1;
+                }
+                break;
+            }
+        }
+    }
+
+    return count;
+}
+// ============================================================================
