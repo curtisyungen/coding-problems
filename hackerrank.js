@@ -2364,3 +2364,42 @@ function minimumBribes(q) {
 }
 
 // ============================================================================
+// Problem: Make Anagram
+// Easy
+
+function makeAnagram(a, b) {
+    let aChars = getObj(a);
+    let bChars = getObj(b);
+
+    let del = 0;
+    Object.keys(aChars).map(ch => {
+        if (!bChars[ch]) {
+            del += aChars[ch];
+        }
+        else {
+            del += Math.abs(aChars[ch] - bChars[ch]);
+        }
+    });
+
+    Object.keys(bChars).map(ch => {
+        if (!aChars[ch]) {
+            del += bChars[ch];
+        }
+    })
+
+    return del;
+}
+
+function getObj(arr) {
+    let obj = {};
+    for (var i=0; i<arr.length; i++) {
+        if (!obj[arr[i]]) {
+            obj[arr[i]] = 1;
+        }
+        else {
+            obj[arr[i]] += 1;
+        }
+    }
+    return obj;
+}
+// ============================================================================
