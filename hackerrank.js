@@ -30,22 +30,21 @@ function pickingNumbers(a) {
 
 function climbingLeaderboard(scores, alice) {
   let ranks = [];
+  let rank = 1;
+  let j = 0;
 
-  for (var a in alice) {
-    if (alice[a] > scores[0]) {
-      ranks.push(1);
-    } else if (alice[a] < scores[scores.length - 1]) {
-      ranks.push(scores.length - 1);
-    } else {
+  for (var i = alice.length - 1; i >= 0; i--) {
+    while (alice[i] < scores[j] && j < scores.length) {
+      if (scores[j] !== scores[j - 1]) {
+        rank += 1;
+      }
+      j += 1;
     }
+    ranks.unshift(rank);
   }
 
   return ranks;
 }
-
-// console.log(
-//   climbingLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120])
-// );
 
 // ============================================================================
 // Problem: The Hurdle Race
@@ -2322,21 +2321,21 @@ function processData(input) {
 // Medium
 
 function minimumSwaps(arr) {
-    let count = 0;
-    let temp;
-    let tempIdx;
+  let count = 0;
+  let temp;
+  let tempIdx;
 
-    for (var i=0; i<arr.length - 1; i++) {
-        if (arr[i] !== i + 1) {
-            temp = arr[i];
-            tempIdx = arr.indexOf(i + 1);
-            arr[i] = arr[tempIdx];
-            arr[tempIdx] = temp;
-            count += 1;
-        }
+  for (var i = 0; i < arr.length - 1; i++) {
+    if (arr[i] !== i + 1) {
+      temp = arr[i];
+      tempIdx = arr.indexOf(i + 1);
+      arr[i] = arr[tempIdx];
+      arr[tempIdx] = temp;
+      count += 1;
     }
-    
-    return count;
+  }
+
+  return count;
 }
 
 // ============================================================================
@@ -2344,23 +2343,22 @@ function minimumSwaps(arr) {
 // Medium
 
 function minimumBribes(q) {
-    let bribes = 0;
+  let bribes = 0;
 
-    for (var i=0; i<q.length - 1; i++) {
-
-        if (q[i] - (i + 1) > 2) {
-            console.log("Too chaotic");
-            return;
-        }
-
-        for (var j=i + 1; j<q.length; j++) {
-            if (q[j] < q[i]) {
-                bribes += 1;
-            }
-        }
+  for (var i = 0; i < q.length - 1; i++) {
+    if (q[i] - (i + 1) > 2) {
+      console.log("Too chaotic");
+      return;
     }
 
-    console.log(bribes);
+    for (var j = i + 1; j < q.length; j++) {
+      if (q[j] < q[i]) {
+        bribes += 1;
+      }
+    }
+  }
+
+  console.log(bribes);
 }
 
 // ============================================================================
@@ -2368,39 +2366,37 @@ function minimumBribes(q) {
 // Easy
 
 function makeAnagram(a, b) {
-    let aChars = getObj(a);
-    let bChars = getObj(b);
+  let aChars = getObj(a);
+  let bChars = getObj(b);
 
-    let del = 0;
-    Object.keys(aChars).map(ch => {
-        if (!bChars[ch]) {
-            del += aChars[ch];
-        }
-        else {
-            del += Math.abs(aChars[ch] - bChars[ch]);
-        }
-    });
+  let del = 0;
+  Object.keys(aChars).map(ch => {
+    if (!bChars[ch]) {
+      del += aChars[ch];
+    } else {
+      del += Math.abs(aChars[ch] - bChars[ch]);
+    }
+  });
 
-    Object.keys(bChars).map(ch => {
-        if (!aChars[ch]) {
-            del += bChars[ch];
-        }
-    })
+  Object.keys(bChars).map(ch => {
+    if (!aChars[ch]) {
+      del += bChars[ch];
+    }
+  });
 
-    return del;
+  return del;
 }
 
 function getObj(arr) {
-    let obj = {};
-    for (var i=0; i<arr.length; i++) {
-        if (!obj[arr[i]]) {
-            obj[arr[i]] = 1;
-        }
-        else {
-            obj[arr[i]] += 1;
-        }
+  let obj = {};
+  for (var i = 0; i < arr.length; i++) {
+    if (!obj[arr[i]]) {
+      obj[arr[i]] = 1;
+    } else {
+      obj[arr[i]] += 1;
     }
-    return obj;
+  }
+  return obj;
 }
 
 // ============================================================================
@@ -2408,25 +2404,24 @@ function getObj(arr) {
 // Easy
 
 function isValid(s) {
-    let chars = {};
-    for (var i=0; i<s.length; i++) {
-        if (!chars[s[i]])  {
-            chars[s[i]] = 1;
-        }
-        else {
-            chars[s[i]] += 1;
-        }
+  let chars = {};
+  for (var i = 0; i < s.length; i++) {
+    if (!chars[s[i]]) {
+      chars[s[i]] = 1;
+    } else {
+      chars[s[i]] += 1;
     }
+  }
 
-    let occ = chars[s[0]];
-    let rems = 0;
-    Object.keys(chars).map(ch => {
-        if (chars[ch] !== occ) {
-            rems += 1;
-        }
-    });
+  let occ = chars[s[0]];
+  let rems = 0;
+  Object.keys(chars).map(ch => {
+    if (chars[ch] !== occ) {
+      rems += 1;
+    }
+  });
 
-    return rems <= 1 ? "YES" : "NO";
+  return rems <= 1 ? "YES" : "NO";
 }
 
 // ============================================================================
@@ -2434,29 +2429,58 @@ function isValid(s) {
 // Medium
 
 function substrCount(n, s) {
-    if (n === 1) {
-        return 1;
-    }
+  if (n === 1) {
+    return 1;
+  }
 
-    let count = s.length;
-    let str;
+  let count = s.length;
+  let str;
 
-    for (var i=0; i<s.length - 1; i++) {
-        str = s[i];
-        for (var j=i + 1; j<s.length; j++) {
-            if (s[j] === s[i]) {
-                count += 1;
-                str += s[j];
-            }
-            else {
-                if (s.substring(j + 1, j + 1 + str.length) === str) {
-                    count += 1;
-                }
-                break;
-            }
+  for (var i = 0; i < s.length - 1; i++) {
+    str = s[i];
+    for (var j = i + 1; j < s.length; j++) {
+      if (s[j] === s[i]) {
+        count += 1;
+        str += s[j];
+      } else {
+        if (s.substring(j + 1, j + 1 + str.length) === str) {
+          count += 1;
         }
+        break;
+      }
     }
+  }
 
-    return count;
+  return count;
 }
+
+// ============================================================================
+// Problem: Common Child
+// Medium
+
+function commonChild(s1, s2) {
+  // Loop through one string
+  // Find earliest common letter
+  // Find next common letter, then the next, etc.
+  let str1 = "";
+  let idx1 = 0;
+  for (var i = 0; i < s1.length; i++) {
+    if (s2.substring(idx1 + 1, s2.length).indexOf(s1[i]) > -1) {
+      idx1 = s2.indexOf(s1[i]);
+      str1 += s1[i];
+    }
+  }
+
+  let str2 = "";
+  let idx2 = 0;
+  for (var j = 0; j < s2.length; j++) {
+    if (s1.substring(idx2 + 1, s1.length).indexOf(s2[i]) > -1) {
+      idx2 = s1.indexOf(s2[j]);
+      str2 += s2[j];
+    }
+  }
+
+  return Math.max(str1.length, str2.length);
+}
+
 // ============================================================================
