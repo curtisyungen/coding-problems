@@ -2526,3 +2526,36 @@ function biggerIsGreater(w) {
 }
 
 // ============================================================================
+// Problem: Encryption
+// Medium
+
+function encryption(s) {
+  s = s.replace(/\s/g, "");
+
+  let length = s.length;
+  let cols = Math.ceil(Math.sqrt(length));
+
+  let obj = {};
+  for (var i = 0; i < s.length; i++) {
+    if (!obj[i % cols]) {
+      obj[i % cols] = s[i];
+    } else {
+      obj[i % cols] += s[i];
+    }
+  }
+
+  let res = "";
+  Object.keys(obj).map(key => {
+    res += `${obj[key]} `;
+  });
+
+  return res;
+}
+
+console.log(
+  encryption(
+    "if man was meant to stay on the ground god would have given us roots"
+  )
+);
+
+// ============================================================================
