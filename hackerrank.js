@@ -2484,3 +2484,45 @@ function commonChild(s1, s2) {
 }
 
 // ============================================================================
+// Problem: Bigger is Greater
+// Medium
+
+function biggerIsGreater(w) {
+  let arr = Array.from(w);
+  let i = arr.length - 1;
+
+  while (i > 0 && arr[i - 1] >= arr[i]) {
+    i--;
+  }
+
+  if (i <= 0) {
+    return "no answer";
+  }
+
+  let j = arr.length - 1;
+  while (arr[j] <= arr[i - 1]) {
+    j--;
+  }
+
+  let temp = arr[i - 1];
+  arr[i - 1] = arr[j];
+  arr[j] = temp;
+
+  j = arr.length - 1;
+  while (i < j) {
+    temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
+  }
+
+  let newStr = "";
+  for (var k = 0; k < arr.length; k++) {
+    newStr += arr[k];
+  }
+
+  return newStr;
+}
+
+// ============================================================================
