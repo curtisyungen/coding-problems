@@ -2552,10 +2552,92 @@ function encryption(s) {
   return res;
 }
 
-console.log(
-  encryption(
-    "if man was meant to stay on the ground god would have given us roots"
-  )
-);
+// ============================================================================
+// Problem: Time in Words
+// Medium
+
+// Complete the timeInWords function below.
+function timeInWords(h, m) {
+  let hours = [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve"
+  ];
+
+  let minutes = [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+    "twenty one",
+    "twenty two",
+    "twenty three",
+    "twenty four",
+    "twenty five",
+    "twenty six",
+    "twenty seven",
+    "twenty eight",
+    "twenty nine"
+  ];
+
+  if (m === 0) {
+    return `${hours[h - 1]} o' clock`;
+  }
+
+  let hour = m > 30 ? hours[h] : hours[h - 1];
+
+  let word;
+  if (m <= 30) {
+    word = "past";
+  } else if (m === 0) {
+    word = "";
+  } else {
+    word = "to";
+    m = 60 - m;
+  }
+
+  let minute;
+
+  switch (m) {
+    case 15:
+      minute = "quarter";
+      break;
+    case 30:
+      minute = "half";
+      break;
+    case 45:
+      minute = "quarter";
+      break;
+    default:
+      minute = `${minutes[m - 1]} ${m > 1 ? "minutes" : "minute"}`;
+  }
+
+  return `${minute} ${word} ${hour}`;
+}
 
 // ============================================================================
