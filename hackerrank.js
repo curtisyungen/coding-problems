@@ -2696,3 +2696,19 @@ console.log(
 );
 
 // ============================================================================
+// Problem: Find the Median
+// Easy
+
+function findMedian(arr) {
+  arr.sort(compare);
+  return arr[(arr.length - 1) / 2];
+}
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  return a > b ? 1 : -1;
+}
+
+// ============================================================================
