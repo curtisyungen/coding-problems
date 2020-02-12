@@ -2641,3 +2641,58 @@ function timeInWords(h, m) {
 }
 
 // ============================================================================
+// Problem: Organizing Containers of Balls
+// Medium
+
+function organizingContainers(container) {
+  let balls = new Array(container[0].length);
+  for (var i = 0; i < balls.length; i++) {
+    balls[i] = 0;
+  }
+
+  for (var i = 0; i < container.length; i++) {
+    for (var j = 0; j < container[i].length; j++) {
+      balls[j] += container[i][j];
+    }
+  }
+
+  let boxes = new Array(container.length);
+  for (var i = 0; i < boxes.length; i++) {
+    boxes[i] = container[i].length;
+  }
+
+  balls.sort(compare);
+  boxes.sort(compare);
+
+  for (var i = 0; i < balls.length; i++) {
+    if (balls[i] > boxes[i]) {
+      return "Impossible";
+    }
+  }
+
+  return "Possible";
+}
+
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  return a > b ? 1 : -1;
+}
+
+console.log(
+  organizingContainers([
+    [0, 2],
+    [1, 1]
+  ])
+);
+
+console.log(
+  organizingContainers([
+    [0, 2, 1],
+    [1, 1, 1],
+    [2, 0, 0]
+  ])
+);
+
+// ============================================================================
