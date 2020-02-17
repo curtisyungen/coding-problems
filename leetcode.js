@@ -304,3 +304,17 @@ var strStr = function(haystack, needle) {
 };
 
 // ============================================================================
+// Problem: Search Insert Position
+// Easy
+
+var searchInsert = function(nums, target) {
+    for (var i=0; i<nums.length; i++) {
+        if (nums[i] >= target) {
+            return i;
+        }
+    }
+    
+    return nums.length;
+};
+
+// ============================================================================
