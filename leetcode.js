@@ -266,3 +266,18 @@ var isValid = function(s) {
 // console.log(isValid("()"));
 
 // ============================================================================
+// Problem: Remove Duplicates from Sorted Array
+// Easy
+
+var removeDuplicates = function(nums) {
+    for (var i=1; i<nums.length; i++) {
+        if (nums[i] === nums[i - 1]) {
+            nums.splice(i, 1);
+            i -=1;
+        }
+    }
+    
+    return nums.length;
+};
+
+// ============================================================================
