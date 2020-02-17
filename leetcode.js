@@ -296,3 +296,11 @@ var removeElement = function(nums, val) {
 };
 
 // ============================================================================
+// Problem: Implement strStr()
+// Easy
+
+var strStr = function(haystack, needle) {
+    return haystack.indexOf(needle);
+};
+
+// ============================================================================
