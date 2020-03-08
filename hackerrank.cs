@@ -20,5 +20,28 @@ namespace coding_problems
 
             return newArr;
         }
-	}
+
+        // Counting Sort II, Easy
+        static int[] countingSort(int[] arr)
+        {
+            int[] sumArr = new int[100];
+            for (var i = 0; i < arr.Length; i++)
+            {
+                sumArr[arr[i]] += 1;
+            }
+
+            int[] resArr = new int[arr.Length];
+            int resIdx = 0;
+            for (var j = 0; j < sumArr.Length; j++)
+            {
+                for (var k = 0; k < sumArr[j]; k++)
+                {
+                    resArr[resIdx] = j;
+                    resIdx += 1;
+                }
+            }
+
+            return resArr;
+        }
+    }
 }
