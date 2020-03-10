@@ -43,5 +43,19 @@ namespace coding_problems
 
             return resArr;
         }
+
+        // Staircase, Easy
+        static void staircase(int n) {
+            string[] stairs = new string[n];
+            
+            for (var j=0; j<stairs.Length; j++) {
+                stairs[j] = " ";
+            }
+            
+            for (var i=n - 1; i>= 0; i--) {
+                stairs[i] = "#";
+                Console.WriteLine(string.Join("", stairs));
+            }
+        }
     }
 }
